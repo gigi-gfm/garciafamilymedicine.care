@@ -125,7 +125,7 @@ function sanitizeText(text) {
     .replace(/\b\d{3}-\d{2}-\d{4}\b/g, '[SSN]') // SSN pattern
     .replace(/\b\d{3}-\d{3}-\d{4}\b/g, '[PHONE]') // Phone pattern
     .replace(/\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/g, '[EMAIL]') // Email pattern
-    .replace(/\b\d{4}[\s-]?\d{4}[\s-]?\d{4}[\s-]?\d{4}\b/g, '[CARD]') // Credit card pattern
+    .replace(/\b\d{4}[\s-]?\d{4}[\s-]?\d{4}[\s-]?\d{4}\b/g, '[CARD]') // Credit card  pattern
     .substring(0, 200); // Limit length
 }
 
