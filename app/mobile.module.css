@@ -1,19 +1,19 @@
-/* Mobile Styles */
+﻿/* Mobile Styles - Cloudflare + Royal Blue Theme */
 
 @media screen and (max-width: 768px) {
   .minHScreen {
     min-height: 100vh;
   }
-  
+
   /* Hide floating dots on mobile for better performance */
   .floatingElements {
     display: none;
   }
-  
+
   .main {
     @apply px-4 py-10;
   }
-  
+
   /* Carousel adjustments for mobile - full screen minus header */
   .carouselWrapper {
     height: calc(100vh - var(--header-height, 80px)) !important;
@@ -21,7 +21,7 @@
     max-height: calc(100vh - var(--header-height, 80px)) !important;
     box-sizing: border-box !important;
   }
-  
+
   /* Override desktop image stretching for mobile - multiple selectors for specificity */
   .carousel-slide-image,
   .carouselWrapper .carousel-slide-image,
@@ -31,21 +31,21 @@
     object-fit: contain !important;
     object-position: center !important;
   }
-  
+
   /* Mobile carousel navigation */
   .carousel-nav-button {
     width: 44px !important;
     height: 44px !important;
   }
-  
+
   .carousel-prev-button {
     left: 12px !important;
   }
-  
+
   .carousel-next-button {
     right: 12px !important;
   }
-  
+
   /* Mobile dots - move back to bottom with background */
   .carousel-dots-container {
     top: auto !important;
@@ -57,7 +57,7 @@
     backdrop-filter: blur(4px) !important;
     border: 1px solid rgba(255, 255, 255, 0.2) !important;
   }
-  
+
   .carousel-dot {
     width: 8px !important;
     height: 8px !important;
@@ -65,16 +65,16 @@
     border: 1px solid rgba(255, 255, 255, 0.9) !important;
     box-shadow: none !important;
   }
-  
+
   .carousel-slide-link:hover {
     transform: none !important;
   }
-  
+
   .carousel-loading-indicator {
     padding: 15px !important;
     font-size: 14px !important;
   }
-  
+
   /* Welcome Card Mobile - Glassmorphism */
   .mainWelcomeCard {
     @apply p-6 w-[calc(100%-16px)] mx-auto rounded-lg;
@@ -83,31 +83,31 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
   }
-  
+
   .mainWelcomeH1 {
     @apply text-2xl font-bold text-center leading-tight tracking-tight;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   }
-  
+
   .mainWelcomeH2 {
     @apply text-lg font-semibold text-center leading-snug mt-3;
     color: rgba(255, 255, 255, 0.95);
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   }
-  
+
   .mainWelcomeP {
     @apply text-base text-justify leading-relaxed mt-4 indent-5;
     color: rgba(255, 255, 255, 0.95);
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   }
-  
+
   .mainWelcomeStrong {
     @apply font-bold;
-    color: #ff6b6b;
+    color: #FAAD3F;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   }
-  
+
   .readMoreButton {
     @apply text-sm font-semibold text-center mx-auto mt-4 px-4 py-2 rounded-full transition-all duration-300;
     color: white;
@@ -118,13 +118,13 @@
     gap: 0.5rem;
     backdrop-filter: blur(10px);
   }
-  
+
   .readMoreButton:hover {
     background: rgba(255, 255, 255, 0.25);
     border-color: white;
     color: white;
   }
-  
+
   /* Care Section Mobile */
   .careSection {
     @apply mt-4 overflow-hidden;
@@ -132,35 +132,35 @@
     opacity: 0;
     transition: max-height 0.5s ease, opacity 0.3s ease;
   }
-  
+
   .careSection.expanded {
     max-height: 3000px;
     opacity: 1;
     padding-top: 1rem;
   }
-  
+
   .careSectionH3 {
     @apply text-lg font-bold text-center leading-snug;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   }
-  
+
   .careSectionP {
     @apply text-sm text-justify leading-relaxed mt-3 indent-5;
     color: rgba(255, 255, 255, 0.95);
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   }
-  
+
   .careSectionUl {
     @apply pl-5 text-sm text-justify leading-relaxed mt-3;
     color: rgba(255, 255, 255, 0.95);
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   }
-  
+
   .careSectionLi {
     @apply mb-2;
   }
-  
+
   /* Comments Section Mobile - Glassmorphism */
   .commentsSection {
     @apply p-6 w-[calc(100%-16px)] mx-auto rounded-lg mt-6;
@@ -169,47 +169,47 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
   }
-  
+
   .commentsSectionH3 {
     @apply text-lg font-bold text-center leading-snug mb-3;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   }
-  
+
   .commentsSectionP {
     @apply text-sm leading-relaxed mb-4 indent-5;
     color: rgba(255, 255, 255, 0.95);
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   }
-  
-  /* Buttons Mobile - High contrast gradient */
+
+  /* Buttons Mobile - Cloudflare Orange gradient */
   .callButton {
     @apply w-full py-3 text-base font-bold text-white rounded-full mt-4 text-center flex items-center justify-center gap-2;
-    background: linear-gradient(135deg, #ff6b6b 0%, #ff5252 100%);
+    background: linear-gradient(135deg, #F48120 0%, #EA580C 100%);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   }
-  
+
   .askButton {
     @apply w-full py-3 text-sm font-bold rounded-full mt-4;
-    color: #1d539f;
+    color: #4169E1;
     background: white;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   }
-  
+
   /* Popup Mobile - Professional overlay */
   .popup {
     @apply fixed inset-0 flex justify-center items-center transition-opacity duration-300;
     background: rgba(0, 0, 0, 0.7);
     z-index: 2147483647;
   }
-  
+
   .popupContent {
     @apply w-[90%] max-h-[80vh] p-6 rounded-xl relative;
     background: white;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
   }
-  
+
   .close {
     @apply absolute text-xl font-bold top-3 right-3 cursor-pointer transition-all duration-200;
     color: #424242;
@@ -222,12 +222,12 @@
     justify-content: center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
-  
+
   .close:hover {
     background: #e0e0e0;
     transform: rotate(90deg);
   }
-  
+
   .iframe {
     @apply h-[calc(70vh-80px)] w-full rounded-md border-0;
   }
@@ -239,33 +239,33 @@
     min-height: 300px !important;
     box-sizing: border-box !important;
   }
-  
+
   /* Ensure contain on smaller screens */
   .carousel-slide-image-container .carousel-slide-image {
     object-fit: contain !important;
     object-position: center !important;
   }
-  
+
   .carousel-nav-button {
     width: 44px !important;
     height: 44px !important;
   }
-  
+
   .carousel-dots-container {
     bottom: 6px !important;
     padding: 3px 6px !important;
     gap: 6px !important;
   }
-  
+
   .carousel-dot {
     width: 6px !important;
     height: 6px !important;
   }
-  
+
   .carousel-prev-button {
     left: 8px !important;
   }
-  
+
   .carousel-next-button {
     right: 8px !important;
   }
@@ -277,33 +277,33 @@
   .commentsSection {
     @apply mx-1 p-3;
   }
-  
+
   .mainWelcomeH1 {
     @apply text-xl;
   }
-  
+
   .mainWelcomeH2 {
     @apply text-base;
   }
-  
+
   .carouselWrapper {
     height: calc(100vh - var(--header-height, 60px)) !important;
     min-height: 250px !important;
     box-sizing: border-box !important;
   }
-  
+
   /* Force contain on extra small screens */
   .carousel-slide-image-container .carousel-slide-image {
     object-fit: contain !important;
     object-position: center !important;
   }
-  
+
   .carousel-dots-container {
     bottom: 4px !important;
     padding: 2px 4px !important;
     gap: 4px !important;
   }
-  
+
   .carousel-dot {
     width: 5px !important;
     height: 5px !important;
@@ -317,12 +317,12 @@
     min-height: 200px !important;
     box-sizing: border-box !important;
   }
-  
+
   .carousel-dots-container {
     bottom: 6px !important;
     padding: 2px 4px !important;
   }
-  
+
   .carousel-nav-button {
     width: 44px !important;
     height: 44px !important;
