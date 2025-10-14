@@ -1,4 +1,4 @@
-/* Reset everything - simple carousel */
+﻿/* Reset everything - simple carousel */
 
 /* Home page styles - regular logo size */
 
@@ -7,9 +7,9 @@
   min-height: 100vh;
   padding-top: 85px; /* Space for fixed header */
   background: 
-    linear-gradient(135deg, #4a90e2 0%, #5e8fbc 25%, #7bb3db 50%, #a1c4e4 75%, #c3d9eb 100%),
-    radial-gradient(ellipse at top right, rgba(74, 144, 226, 0.4) 0%, transparent 50%),
-    radial-gradient(ellipse at bottom left, rgba(94, 143, 188, 0.3) 0%, transparent 50%);
+    linear-gradient(135deg, #4169E1 0%, rgba(65, 105, 225, 0.85) 50%, rgba(244, 129, 32, 0.3) 100%),
+    radial-gradient(ellipse at top right, rgba(65, 105, 225, 0.4) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom left, rgba(244, 129, 32, 0.3) 0%, transparent 50%);
   position: relative;
   overflow: hidden;
 }
@@ -58,7 +58,7 @@
   left: -50%;
   background: 
     /* Large floating orb */
-    radial-gradient(circle at 70% 40%, rgba(94, 143, 188, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 70% 40%, rgba(244, 129, 32, 0.3) 0%, transparent 50%),
     /* Medium floating orb */
     radial-gradient(circle at 30% 60%, rgba(74, 144, 226, 0.25) 0%, transparent 40%),
     /* Small accent orbs */

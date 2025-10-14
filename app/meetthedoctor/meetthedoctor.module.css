@@ -1,4 +1,4 @@
-/* =========================================================
+﻿/* =========================================================
    BASE STYLES - Use colors from globals.css
    ======================================================= */
 .page {
@@ -70,7 +70,7 @@
 
 .navLink:hover {
   color: var(--accent);
-  background: rgba(255, 107, 107, 0.2);
+  background: rgba(244, 129, 32, 0.2);
 }
 
 /* =========================================================
@@ -84,7 +84,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-background: linear-gradient(135deg, rgba(55, 114, 197, 0.8) 0%, rgba(55, 114, 197, 0.6) 50%, rgba(55, 114, 197, 0.4) 100%);}
+background: linear-gradient(135deg, rgba(65, 105, 225, 0.8) 0%, rgba(65, 105, 225, 0.6) 50%, rgba(65, 105, 225, 0.4) 100%);}
 
 .heroBackground {
   position: absolute;
@@ -98,7 +98,7 @@ background: linear-gradient(135deg, rgba(55, 114, 197, 0.8) 0%, rgba(55, 114, 19
   background: linear-gradient(
     135deg,
     rgba(39, 92, 171, 0.3) 0%,
-    rgba(255, 107, 107, 0.2) 50%,
+    rgba(244, 129, 32, 0.2) 50%,
     rgba(209, 231, 255, 0.2) 100%
   );
 }
@@ -672,7 +672,7 @@ background: linear-gradient(135deg, rgba(55, 114, 197, 0.8) 0%, rgba(55, 114, 19
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: linear-gradient(135deg, rgba(55, 114, 197, 0.8) 0%, rgba(55, 114, 197, 0.6) 50%, rgba(55, 114, 197, 0.4) 100%);
+  background: linear-gradient(135deg, rgba(65, 105, 225, 0.8) 0%, rgba(65, 105, 225, 0.6) 50%, rgba(65, 105, 225, 0.4) 100%);
 }
 
 .storySection .heroBackground {
@@ -687,7 +687,7 @@ background: linear-gradient(135deg, rgba(55, 114, 197, 0.8) 0%, rgba(55, 114, 19
   background: linear-gradient(
     135deg,
     rgba(39, 92, 171, 0.3) 0%,
-    rgba(255, 107, 107, 0.2) 50%,
+    rgba(244, 129, 32, 0.2) 50%,
     rgba(209, 231, 255, 0.2) 100%
   );
 }

@@ -1,12 +1,12 @@
-/* Service Page Styles */
+﻿/* Service Page Styles */
 .container {
   /* Local CSS Variables */
   --header-height: 60px;
-  --hero-bg: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #2563eb 100%);
+  --hero-bg: linear-gradient(135deg, #4169E1 0%, rgba(65, 105, 225, 0.85) 50%, rgba(244, 129, 32, 0.3) 100%);
   --content-bg: #ffffff;
   --text-primary: #1f2937;
   --text-secondary: #4b5563;
-  --accent-color: #2563eb;
+  --accent-color: #F48120;
   --section-padding: 4rem;
 }
 
@@ -123,7 +123,7 @@
 }
 
 .bulletList li::before {
-  content: '✓';
+  content: 'âœ“';
   position: absolute;
   left: 0;
   top: 0;
