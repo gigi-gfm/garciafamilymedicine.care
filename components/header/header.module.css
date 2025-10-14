@@ -1,14 +1,14 @@
-/* =========================================================
+﻿/* =========================================================
    HEADER BASE STYLES - DESKTOP FIRST
    ======================================================== */
 
 .container {
-  --top-bar-bg: #032c7c;
-  --primary-blue: #5e8fbc;
-  --hover-blue: #1d539f;
+  --top-bar-bg: #4169E1;
+  --primary-blue: #4169E1;
+  --hover-blue: #F48120;
   --dropdown-bg: #ffffff;
   --dropdown-link: #10264f;
-  --dropdown-hover-bg: #e8efff;
+  --dropdown-hover-bg: #FFF7ED;
   --dropdown-hover-text: #10264f;
   --logo-red: #f8e0d3;
   --text-white: #ffffff;
