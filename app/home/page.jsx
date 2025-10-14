@@ -13,25 +13,25 @@ const slides = [
   {
     src: '/images/homepage/homepage-banner-02.png',
     alt: 'Mental Health Support - Compassionate Counseling',
-    href: DEFAULT_URL,
+    href: '/services/peacewithin-life-coaching',
     target: '_self'
   },
   {
     src: '/images/homepage/homepage-banner-03.png',
-    alt: 'Pelvic Health Treatment - Emsella Chair',
-    href: DEFAULT_URL,
+    alt: 'Pelvic Health Treatment - CoreLift Program',
+    href: '/services/corelift',
     target: '_self'
   },
   {
     src: '/images/homepage/homepage-banner-04.png',
-    alt: 'Direct Primary Care Membership - No Insurance Hassles',
-    href: DEFAULT_URL,
+    alt: 'Direct Primary Care Membership',
+    href: '/services/myclinic365',
     target: '_self'
   },
   {
     src: '/images/homepage/homepage-banner-05.png',
-    alt: 'Weight Management Program - Healthy Lifestyle',
-    href: DEFAULT_URL,
+    alt: 'Weight Management - Nourish & Thrive Journey',
+    href: '/services/nourish-thrive-journey',
     target: '_self'
   },
   {
@@ -42,17 +42,19 @@ const slides = [
   },
   {
     src: '/images/homepage/homepage-banner-07.png',
-    alt: 'Healthcare Services - Garcia Family Medicine',
-    href: DEFAULT_URL,
+    alt: 'Healthcare Services - View All',
+    href: '/services',
     target: '_self'
   },
   {
     src: '/images/homepage/homepage-banner-08.png',
-    alt: 'Family Care Services - Compassionate Healthcare',
-    href: DEFAULT_URL,
+    alt: 'Faith & Family Medicine',
+    href: '/services/faith-family-medicine',
     target: '_self'
   }
 ];
+
+
 
 export default function Home() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -406,3 +408,5 @@ export default function Home() {
     </div>
   );
 }
+
+

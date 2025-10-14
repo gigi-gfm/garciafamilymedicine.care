@@ -1,16 +1,16 @@
-'use client';
+﻿'use client';
 
 import styles from './services.module.css';
 import Header from '../../components/header';
 import Footer from '../../components/footer/footer';
 import Link from 'next/link';
 import Image from 'next/image';
-import { 
-  FaHeart, 
-  FaUserMd, 
-  FaShieldAlt, 
-  FaStethoscope, 
-  FaCalendarCheck, 
+import {
+  FaHeart,
+  FaUserMd,
+  FaShieldAlt,
+  FaStethoscope,
+  FaCalendarCheck,
   FaHandsHelping,
   FaClock,
   FaPhone,
@@ -21,88 +21,81 @@ import {
 } from 'react-icons/fa';
 
 const services = {
-  premium: [
+  featured: [
+    {
+      icon: FaStethoscope,
+      title: "CoreLift™ Program",
+      description: "Revolutionary pelvic floor strengthening and body contouring",
+      link: "/services/corelift",
+      color: "#F48120",
+      features: ["Non-invasive treatment", "FDA-cleared technology", "Long-lasting results"]
+    },
+    {
+      icon: FaUserMd,
+      title: "ValorView™ IME",
+      description: "Independent medical exams for veterans and disability claims",
+      link: "/services/valorview-ime",
+      color: "#4169E1",
+      features: ["Comprehensive exams", "Detailed reports", "Expert assessment"]
+    },
+    {
+      icon: FaHandsHelping,
+      title: "Nourish & Thrive™ Journey",
+      description: "12-month weight management and wellness transformation",
+      link: "/services/nourish-thrive-journey",
+      color: "#FAAD3F",
+      features: ["Personalized nutrition", "Lifestyle coaching", "Sustainable results"]
+    }
+  ],
+  other: [
     {
       icon: FaHeart,
       title: "Faith & Family Medicine™",
       description: "Whole-person care honoring body, soul, and spirit",
       link: "/services/faith-family-medicine",
-      color: "#e11d48",
-      features: ["Spiritual integration", "Family-centered care", "Holistic approach"]
-    },
-    {
-      icon: FaStethoscope,
-      title: "CoreLift™ Program",
-      description: "Revolutionary pelvic floor strengthening",
-      link: "/services/corelift",
-      color: "#8b5cf6",
-      features: ["Non-invasive treatment", "FDA-cleared technology", "Long-lasting results"]
-    },
-    {
-      icon: FaHandsHelping,
-      title: "Nourish & Thrive™ Journey",
-      description: "12-month wellness transformation",
-      link: "/services/nourish-thrive-journey",
-      color: "#10b981",
-      features: ["Personalized nutrition", "Lifestyle coaching", "Sustainable results"]
+      color: "#4169E1"
     },
     {
       icon: FaShieldAlt,
       title: "TrueRelief™ Therapy",
       description: "Non-opioid pain management",
       link: "/services/truerelief-therapy",
-      color: "#f59e0b",
-      features: ["Drug-free relief", "Advanced technology", "Proven effectiveness"]
+      color: "#F48120"
     },
     {
       icon: FaHeart,
       title: "PeaceWithin™ Life Coaching",
-      description: "Trauma-informed healing",
+      description: "Trauma-informed healing and mental health support",
       link: "/services/peacewithin-life-coaching",
-      color: "#3b82f6",
-      features: ["Emotional healing", "Personal growth", "Faith-based support"]
-    }
-  ],
-  professional: [
+      color: "#4169E1"
+    },
     {
       icon: FaUserMd,
       title: "ClearRoad™ DOT Exams",
       description: "Commercial driver physicals",
       link: "/services/clearroad-dot-exams",
-      color: "#059669",
-      features: ["Same-day service", "FMCSA certified", "Fast results"]
-    },
-    {
-      icon: FaStethoscope,
-      title: "ValorView™ IME",
-      description: "Independent medical exams",
-      link: "/services/valorview-ime",
-      color: "#7c3aed",
-      features: ["Comprehensive exams", "Detailed reports", "Expert assessment"]
+      color: "#FAAD3F"
     },
     {
       icon: FaShieldAlt,
       title: "ValorLink™ Letters",
-      description: "Veteran disability support",
+      description: "Veteran disability support letters",
       link: "/services/valorlink-letter",
-      color: "#dc2626",
-      features: ["VA nexus letters", "DBQ assistance", "Veteran advocacy"]
+      color: "#F48120"
     },
     {
       icon: FaCalendarCheck,
       title: "MyClinic365™",
-      description: "Workplace healthcare",
+      description: "Workplace healthcare solutions",
       link: "/services/myclinic365",
-      color: "#2563eb",
-      features: ["On-site care", "Employee wellness", "Cost savings"]
+      color: "#4169E1"
     },
     {
       icon: FaHandsHelping,
       title: "CareBridge™",
-      description: "24/7 healthcare platform",
+      description: "24/7 telehealth platform",
       link: "/services/carebridge",
-      color: "#ec4899",
-      features: ["Always available", "Virtual visits", "Comprehensive care"]
+      color: "#FAAD3F"
     }
   ]
 };
@@ -121,88 +114,45 @@ export default function ServicesMainPage() {
           <div className={styles.heroContent}>
             <div className={styles.heroText}>
               <h1 className={styles.heroTitle}>
-                <span className={styles.titleAccent}>Transformative</span>
+                <span className={styles.titleAccent}>Comprehensive</span>
                 <br />Healthcare Services
               </h1>
               <p className={styles.heroSubtitle}>
-                Experience healthcare that goes beyond treating symptoms. 
-                Our innovative services address your complete wellness journey.
+                Quality healthcare that treats the whole person - body, mind, and spirit.
               </p>
               <div className={styles.heroActions}>
                 <Link href="/contact" className={styles.primaryButton}>
-                  <FaPhone /> Schedule Consultation
+                  <FaPhone /> Schedule Appointment
                 </Link>
-                <Link href="#services" className={styles.secondaryButton}>
-                  Explore Services <FaArrowRight />
-                </Link>
-              </div>
-            </div>
-            <div className={styles.heroImage}>
-              <div className={styles.imageWrapper}>
-                <Image
-                  src="/images/services/hero-doctor.jpg"
-                  alt="Dr. Garcia providing compassionate care"
-                  width={600}
-                  height={400}
-                  className={styles.heroImg}
-                  unoptimized
-                />
-                <div className={styles.imageAccent}></div>
+                <a href="tel:816-427-5320" className={styles.secondaryButton}>
+                  Call: 816-427-5320
+                </a>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Stats Section */}
-        <section className={styles.statsSection}>
-          <div className={styles.container}>
-            <div className={styles.statsGrid}>
-              <div className={styles.statCard}>
-                <div className={styles.statIcon}><FaStar /></div>
-                <div className={styles.statNumber}>15+</div>
-                <div className={styles.statLabel}>Years of Excellence</div>
-              </div>
-              <div className={styles.statCard}>
-                <div className={styles.statIcon}><FaHeart /></div>
-                <div className={styles.statNumber}>10,000+</div>
-                <div className={styles.statLabel}>Lives Transformed</div>
-              </div>
-              <div className={styles.statCard}>
-                <div className={styles.statIcon}><FaCheckCircle /></div>
-                <div className={styles.statNumber}>98%</div>
-                <div className={styles.statLabel}>Patient Satisfaction</div>
-              </div>
-              <div className={styles.statCard}>
-                <div className={styles.statIcon}><FaClinicMedical /></div>
-                <div className={styles.statNumber}>20+</div>
-                <div className={styles.statLabel}>Specialized Services</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Premium Services Section */}
-        <section id="services" className={styles.servicesSection}>
+        {/* Featured Services - Top 3 */}
+        <section id="featured" className={styles.featuredSection}>
           <div className={styles.container}>
             <div className={styles.sectionHeader}>
-              <span className={styles.sectionLabel}>Premium Healthcare</span>
-              <h2 className={styles.sectionTitle}>Innovative Wellness Programs</h2>
+              <span className={styles.sectionLabel}>Our Top Services</span>
+              <h2 className={styles.sectionTitle}>Most Popular Treatments</h2>
               <p className={styles.sectionDescription}>
-                Our signature programs combine cutting-edge technology with 
-                compassionate care to deliver transformative health outcomes.
+                Discover our most sought-after services delivering exceptional results.
               </p>
             </div>
 
-            <div className={styles.servicesGrid}>
-              {services.premium.map((service, index) => (
-                <Link href={service.link} key={index} className={styles.serviceCard}>
+            <div className={styles.featuredGrid}>
+              {services.featured.map((service, index) => (
+                <Link href={service.link} key={index} className={styles.featuredCard}>
                   <div className={styles.cardHeader}>
-                    <div 
-                      className={styles.iconWrapper} 
+                    <div
+                      className={styles.iconWrapper}
                       style={{ backgroundColor: `${service.color}20` }}
                     >
-                      <service.icon 
-                        className={styles.serviceIcon} 
+                      <service.icon
+                        className={styles.serviceIcon}
                         style={{ color: service.color }}
                       />
                     </div>
@@ -212,13 +162,13 @@ export default function ServicesMainPage() {
                   <ul className={styles.featureList}>
                     {service.features.map((feature, idx) => (
                       <li key={idx}>
-                        <FaCheckCircle className={styles.featureIcon} />
+                        <FaCheckCircle className={styles.featureIcon} style={{ color: service.color }} />
                         {feature}
                       </li>
                     ))}
                   </ul>
                   <div className={styles.cardFooter}>
-                    <span className={styles.learnMore}>
+                    <span className={styles.learnMore} style={{ color: service.color }}>
                       Learn More <FaArrowRight />
                     </span>
                   </div>
@@ -228,99 +178,43 @@ export default function ServicesMainPage() {
           </div>
         </section>
 
-        {/* Professional Services Section */}
+        {/* Other Services */}
         <section className={`${styles.servicesSection} ${styles.altBackground}`}>
           <div className={styles.container}>
             <div className={styles.sectionHeader}>
-              <span className={styles.sectionLabel}>Professional Services</span>
-              <h2 className={styles.sectionTitle}>Specialized Medical Care</h2>
+              <h2 className={styles.sectionTitle}>Additional Services</h2>
               <p className={styles.sectionDescription}>
-                From workplace wellness to veteran support, our professional 
-                services meet diverse healthcare needs with expertise and compassion.
+                Comprehensive healthcare solutions for all your needs.
               </p>
             </div>
 
-            <div className={styles.servicesGrid}>
-              {services.professional.map((service, index) => (
-                <Link href={service.link} key={index} className={styles.serviceCard}>
-                  <div className={styles.cardHeader}>
-                    <div 
-                      className={styles.iconWrapper} 
-                      style={{ backgroundColor: `${service.color}20` }}
-                    >
-                      <service.icon 
-                        className={styles.serviceIcon} 
-                        style={{ color: service.color }}
-                      />
-                    </div>
-                    <h3 className={styles.serviceTitle}>{service.title}</h3>
-                  </div>
-                  <p className={styles.serviceDescription}>{service.description}</p>
-                  <ul className={styles.featureList}>
-                    {service.features.map((feature, idx) => (
-                      <li key={idx}>
-                        <FaCheckCircle className={styles.featureIcon} />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className={styles.cardFooter}>
-                    <span className={styles.learnMore}>
-                      Learn More <FaArrowRight />
-                    </span>
-                  </div>
+            <div className={styles.otherServicesGrid}>
+              {services.other.map((service, index) => (
+                <Link href={service.link} key={index} className={styles.otherServiceCard}>
+                  <service.icon className={styles.otherServiceIcon} style={{ color: service.color }} />
+                  <h4 className={styles.otherServiceTitle}>{service.title}</h4>
+                  <p className={styles.otherServiceDesc}>{service.description}</p>
                 </Link>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Why Choose Us Section */}
-        <section className={styles.whySection}>
+        {/* CTA Section */}
+        <section className={styles.ctaSection}>
           <div className={styles.container}>
-            <div className={styles.whyContent}>
-              <div className={styles.whyText}>
-                <h2 className={styles.whyTitle}>Why Choose Garcia Family Medicine?</h2>
-                <p className={styles.whyDescription}>
-                  We're not just another medical practice. We're your partners in achieving 
-                  lasting health and wellness through innovative, personalized care.
-                </p>
-                <div className={styles.whyFeatures}>
-                  <div className={styles.whyFeature}>
-                    <FaClock className={styles.whyIcon} />
-                    <div>
-                      <h4>Extended Appointments</h4>
-                      <p>60-minute visits ensure thorough, unhurried care</p>
-                    </div>
-                  </div>
-                  <div className={styles.whyFeature}>
-                    <FaHeart className={styles.whyIcon} />
-                    <div>
-                      <h4>Whole-Person Approach</h4>
-                      <p>Addressing physical, mental, and spiritual health</p>
-                    </div>
-                  </div>
-                  <div className={styles.whyFeature}>
-                    <FaShieldAlt className={styles.whyIcon} />
-                    <div>
-                      <h4>Advanced Technology</h4>
-                      <p>State-of-the-art treatments for optimal results</p>
-                    </div>
-                  </div>
-                </div>
-                <Link href="/meetthedoctor" className={styles.meetDoctorButton}>
-                  Meet Dr. Garcia <FaArrowRight />
+            <div className={styles.ctaContent}>
+              <h2 className={styles.ctaTitle}>Ready to Get Started?</h2>
+              <p className={styles.ctaDescription}>
+                Contact us today to schedule your appointment or learn more about our services.
+              </p>
+              <div className={styles.ctaButtons}>
+                <Link href="/contact" className={styles.ctaPrimary}>
+                  Schedule Appointment
                 </Link>
-              </div>
-              <div className={styles.whyImage}>
-                <Image
-                  src="/images/doctor-consultation.jpg"
-                  alt="Dr. Garcia in consultation"
-                  width={500}
-                  height={600}
-                  className={styles.whyImg}
-                  unoptimized
-                />
+                <a href="tel:816-427-5320" className={styles.ctaSecondary}>
+                  Call: 816-427-5320
+                </a>
               </div>
             </div>
           </div>
