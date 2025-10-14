@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Header from '../../components/header/header';
@@ -49,12 +49,6 @@ const slides = [
   {
     src: '/images/homepage/homepage-banner-08.png',
     alt: 'Family Care Services - Compassionate Healthcare',
-    href: DEFAULT_URL,
-    target: '_self'
-  },
-  {
-    src: '/images/homepage/homepage-banner-09.png',
-    alt: 'Medical Services - Professional Healthcare',
     href: DEFAULT_URL,
     target: '_self'
   }
