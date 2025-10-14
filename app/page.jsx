@@ -312,44 +312,87 @@ export default function LandingPage() {
           aria-modal="true"
           aria-labelledby="popup-title"
         >
-          <div className={combineStyles(
-            styles.popupContent,
-            mobileStyles.popupContent
-          )}>
-            <button
-              className={combineStyles(
-                styles.close,
-                mobileStyles.close
-              )}
-              onClick={() => setIsPopupOpen(false)}
-              aria-label="Close dialog"
-            >
-              Ã—
-            </button>
-            <div style="padding: 2rem; text-align: center;">
-              <h2 style="color: #4169E1; font-size: 2rem; margin-bottom: 1rem;">Ask Dr. Tess</h2>
-              <p style="color: #404041; font-size: 1.1rem; margin-bottom: 2rem;">
-                Have questions? Reach out to us directly!
-              </p>
-              <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px; margin: 0 auto;">
-                <a href="mailto:admin@garciafamilymedicine.care" 
-                   style="background: linear-gradient(135deg, #4169E1 0%, #2563EB 100%); color: white; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
-                  📧 Email Dr. Tess
-                </a>
-                <a href="tel:816-427-5320" 
-                   style="background: linear-gradient(135deg, #F48120 0%, #EA580C 100%); color: white; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
-                  📞 Call: (816) 427-5320
-                </a>
-                <a href="sms:816-427-5320" 
-                   style="background: linear-gradient(135deg, #FAAD3F 0%, #F48120 100%); color: white; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
-                  💬 Text: (816) 427-5320
-                </a>
+                      <div className={combineStyles(
+              styles.popupContent,
+              mobileStyles.popupContent
+            )}>
+              <button
+                className={combineStyles(
+                  styles.close,
+                  mobileStyles.close
+                )}
+                onClick={() => setIsPopupOpen(false)}
+                aria-label="Close dialog"
+              >
+                ×
+              </button>
+              <div style={{ padding: '2rem', textAlign: 'center' }}>
+                <h2 style={{ color: '#4169E1', fontSize: '2rem', marginBottom: '1rem' }}>Ask Dr. Tess</h2>
+                <p style={{ color: '#404041', fontSize: '1.1rem', marginBottom: '2rem' }}>
+                  Have questions? Reach out to us directly!
+                </p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '400px', margin: '0 auto' }}>
+                  <a 
+                    href="mailto:admin@garciafamilymedicine.care" 
+                    style={{ 
+                      background: 'linear-gradient(135deg, #4169E1 0%, #2563EB 100%)', 
+                      color: 'white', 
+                      padding: '1rem 2rem', 
+                      borderRadius: '50px', 
+                      textDecoration: 'none', 
+                      fontWeight: '600', 
+                      fontSize: '1.1rem', 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      justifyContent: 'center', 
+                      gap: '0.5rem' 
+                    }}
+                  >
+                    📧 Email Dr. Tess
+                  </a>
+                  <a 
+                    href="tel:816-427-5320" 
+                    style={{ 
+                      background: 'linear-gradient(135deg, #F48120 0%, #EA580C 100%)', 
+                      color: 'white', 
+                      padding: '1rem 2rem', 
+                      borderRadius: '50px', 
+                      textDecoration: 'none', 
+                      fontWeight: '600', 
+                      fontSize: '1.1rem', 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      justifyContent: 'center', 
+                      gap: '0.5rem' 
+                    }}
+                  >
+                    📞 Call: (816) 427-5320
+                  </a>
+                  <a 
+                    href="sms:816-427-5320" 
+                    style={{ 
+                      background: 'linear-gradient(135deg, #FAAD3F 0%, #F48120 100%)', 
+                      color: 'white', 
+                      padding: '1rem 2rem', 
+                      borderRadius: '50px', 
+                      textDecoration: 'none', 
+                      fontWeight: '600', 
+                      fontSize: '1.1rem', 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      justifyContent: 'center', 
+                      gap: '0.5rem' 
+                    }}
+                  >
+                    💬 Text: (816) 427-5320
+                  </a>
+                </div>
+                <p style={{ color: '#404041', fontSize: '0.9rem', marginTop: '2rem' }}>
+                  We typically respond within 24 hours during business days.
+                </p>
               </div>
-              <p style="color: #404041; font-size: 0.9rem; margin-top: 2rem;">
-                We typically respond within 24 hours during business days.
-              </p>
             </div>
-          </div>
+
         </div>
       )}
       
@@ -363,3 +406,4 @@ export default function LandingPage() {
     </div>
   );
 }
+
