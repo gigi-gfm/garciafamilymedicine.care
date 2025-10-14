@@ -1,4 +1,4 @@
-/* ================ CLEAN CONTACT PAGE STYLES ================ */
+﻿/* ================ CLEAN CONTACT PAGE STYLES ================ */
 
 /* Base Layout */
 .pageContainer {
@@ -141,7 +141,7 @@
 .methodIcon {
   width: 40px;
   height: 40px;
-  background: #1e40af;
+  background: #F48120;
   color: white;
   border-radius: 8px;
   display: flex;
@@ -214,7 +214,7 @@
 }
 
 .addressIcon {
-  color: #1e40af;
+  color: #F48120;
   font-size: 1.25rem;
   flex-shrink: 0;
   margin-top: 0.25rem;
@@ -236,7 +236,7 @@
 
 .directionsLink {
   display: inline-block;
-  color: #1e40af;
+  color: #F48120;
   text-decoration: none;
   font-weight: 500;
   margin-bottom: 1rem;
@@ -375,3 +375,4 @@
     justify-content: center;
   }
 }
+
