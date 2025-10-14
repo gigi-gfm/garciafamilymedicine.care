@@ -1,15 +1,36 @@
-/* =========================================================
-   GLOBAL STYLES - Main entry point for all styles
-   ======================================================= */
-
-/* Tailwind CSS */
-@tailwind base;
+﻿@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Custom styles organized by purpose */
-@import '../styles/base.css';
-@import '../styles/components.css';
-@import '../styles/utilities.css';
-@import '../styles/desktop/desktop.css';
+:root {
+  --primary-orange: #F48120;
+  --accent-orange: #FAAD3F;
+  --royal-blue: #4169E1;
+  --dark-gray: #404041;
+  --white: #FFFFFF;
+}
 
+body {
+  font-family: 'Inter', 'Avenir', system-ui, sans-serif;
+  color: var(--dark-gray);
+  background: var(--white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--royal-blue);
+  font-weight: 600;
+}
+
+a {
+  color: var(--royal-blue);
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--primary-orange);
+}
+
+button, .btn {
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
