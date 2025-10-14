@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import styles from '../learn/learn-article.module.css'
 import Link from 'next/link'
@@ -49,7 +49,7 @@ export default function ContactPage() {
                 <ul>
                   <li><strong>Phone:</strong> (816) 427-5320</li>
                   <li><strong>Fax:</strong> (816) 847-0281</li>
-                  <li><strong>Email:</strong> info@garciafamilymedicine.care</li>
+                  <li><strong>Email:</strong> admin@garciafamilymedicine.care</li>
                   <li><strong>Text/SMS:</strong> Available for existing patients</li>
                 </ul>
               </div>
