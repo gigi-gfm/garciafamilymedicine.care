@@ -61,7 +61,7 @@ export default function ServicesCarousel() {
       id: 6,
       title: 'Payment Plans',
       subtitle: 'Flexible Payment Options',
-      description: 'Multiple payment options including CareCredit, Cherry 0% financing, and custom payment plans.',
+      description: 'Multiple payment options including CareCredit 0% financing and custom payment plans.',
       link: '/services/payment-plans',
       icon: '',
       colors: { from: '#FAAD3F', via: '#FFB347', to: '#4169E1' }
@@ -173,3 +173,4 @@ export default function ServicesCarousel() {
     </div>
   );
 }
+

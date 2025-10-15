@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useRef, useEffect, useMemo } from 'react';
 import Image from 'next/image';
@@ -309,7 +309,7 @@ export default function Header() {
             onClick={handleLogoClick}
           >
             <Image
-              src="/images/logo.png"
+              src="/images/logo-new.png"
               alt="Garcia Family Medicine logo"
               width={85}
               height={85}
@@ -426,7 +426,7 @@ export default function Header() {
               onClick={() => setIsMenuOpen(false)}
               aria-label="Close menu"
             >
-              ✕
+              âœ•
             </button>
             
             {/* Conditional header based on submenu state */}
@@ -589,7 +589,7 @@ export default function Header() {
                           </span>
                         )}
                         <span className={`${mobileStyles.dropdownIndicator || ''}`}>
-                          →
+                          â†’
                         </span>
                       </button>
                     );
@@ -632,3 +632,4 @@ export default function Header() {
     </>
   );
 }
+
