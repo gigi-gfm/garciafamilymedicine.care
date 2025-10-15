@@ -55,66 +55,6 @@ export default function ServicesCarousel() {
       description: 'Professional counseling for anxiety, depression, life transitions, and personal growth.',
       link: '/services/counseling',
       icon: '',
-      colors: { from: '#4169E1', via: '#60A5FA', to:
-
-$newCarousel = @'
-'use client';
-
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import styles from './carousel.module.css';
-
-export default function ServicesCarousel() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  const slides = [
-    {
-      id: 1,
-      title: 'CoreLift Confidence',
-      subtitle: 'Emsella Pelvic Floor Therapy',
-      description: 'FDA-cleared breakthrough treatment for bladder control and pelvic health. Non-surgical, no downtime.',
-      link: '/services/corelift',
-      icon: '',
-      colors: { from: '#F48120', via: '#FF6B35', to: '#FAAD3F' },
-      featured: true
-    },
-    {
-      id: 2,
-      title: 'Independent Medical Examinations',
-      subtitle: 'Professional IME Services',
-      description: 'Comprehensive independent medical evaluations for workers compensation, disability claims, and legal cases.',
-      link: '/services/valorview-ime',
-      icon: '',
-      colors: { from: '#4169E1', via: '#5B8DEE', to: '#2563EB' },
-      featured: true
-    },
-    {
-      id: 3,
-      title: 'Nourish & Thrive Journey',
-      subtitle: 'Medical Weight Management',
-      description: 'Personalized weight loss program with GLP-1 medications, nutrition counseling, and lifestyle support.',
-      link: '/services/nourish-thrive-journey',
-      icon: '',
-      colors: { from: '#FAAD3F', via: '#FFB347', to: '#F48120' },
-      featured: true
-    },
-    {
-      id: 4,
-      title: 'ClearRoad DOT Exams',
-      subtitle: 'DOT Physical Certifications',
-      description: 'Fast, certified DOT physicals for commercial drivers. Keep your CDL active and stay on the road.',
-      link: '/services/clearroad-dot-exams',
-      icon: '',
-      colors: { from: '#2563EB', via: '#3B82F6', to: '#4169E1' }
-    },
-    {
-      id: 5,
-      title: 'Counseling Services',
-      subtitle: 'Mental Health Support',
-      description: 'Professional counseling for anxiety, depression, life transitions, and personal growth.',
-      link: '/services/counseling',
-      icon: '',
       colors: { from: '#4169E1', via: '#60A5FA', to: '#FAAD3F' }
     },
     {
@@ -139,7 +79,7 @@ export default function ServicesCarousel() {
       id: 8,
       title: 'Fall Into Confidence + Veterans Appreciation',
       subtitle: 'Thursday, November 6th  3-7 PM',
-      description: ' FREE Emsella Demos   Refreshments Available   Honoring Our Veterans  Special Veterans Pricing',
+      description: ' FREE Emsella Demos   Refreshments   Honoring Veterans  Special Pricing',
       link: '/contact',
       icon: '',
       colors: { from: '#F48120', via: '#4169E1', to: '#FAAD3F' },
@@ -149,7 +89,7 @@ export default function ServicesCarousel() {
       id: 9,
       title: 'Meet Dr. Tess Garcia',
       subtitle: 'Your Partner in Whole-Person Healthcare',
-      description: 'Watch Dr. Tess explain pelvic health solutions and how we treat the whole patient: Spirit, Body, and Soul.',
+      description: 'Watch Dr. Tess explain pelvic health solutions. Treating Spirit, Body, and Soul.',
       link: 'https://youtu.be/SAiFSAqIMSM',
       icon: '',
       colors: { from: '#4169E1', via: '#2563EB', to: '#F48120' },
@@ -233,4 +173,3 @@ export default function ServicesCarousel() {
     </div>
   );
 }
-
