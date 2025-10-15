@@ -304,7 +304,7 @@ export default function Header() {
         <nav className={`${styles.navbar} ${mobileStyles.navbar || ''}`} aria-label="main navigation">
           {/* Logo */}
           <Link
-            href="/home"
+            href="/"
             className={`${styles.logo} ${mobileStyles.logo || ''}`}
             onClick={handleLogoClick}
           >

@@ -1,6 +1,8 @@
 ﻿'use client';
 
 import { useState, useEffect } from 'react';
+
+import ServicesCarousel from '../components/carousel/carousel';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './page.module.css';
@@ -142,9 +144,9 @@ export default function LandingPage() {
           )}>
             Step into a healthcare experience rooted in trust, integrity, and the boundless love of God! At&nbsp;
             <strong className={styles.mainWelcomeStrong}>Garcia Family Medicine</strong>, we're passionately committed to making healthcare in Blue Springs, MO,&nbsp;
-            <strong className={styles.mainWelcomeStrong}>simple, affordable, and deeply personalâ€”</strong>because you're more than a patient, you're family.
+            <strong className={styles.mainWelcomeStrong}>simple, affordable, and deeply personal—</strong>because you're more than a patient, you're family.
             We've stepped away from the traditional insurance system to deliver&nbsp;
-            <strong className={styles.mainWelcomeStrong}>highâ€‘quality primary care</strong> and mentalâ€‘health support that's costâ€‘effective, compassionate,
+            <strong className={styles.mainWelcomeStrong}>high‑quality primary care</strong> and mental‑health support that's cost‑effective, compassionate,
             and free of long waits or hidden fees. Serving Blue Springs, Independence, Lee's Summit, and the greater
             Kansas City metro area, we're here to wrap you in care that reflects God's grace and goodness.
           </p>
@@ -180,8 +182,8 @@ export default function LandingPage() {
               styles.careSectionP,
               mobileStyles.careSectionP
             )}>
-              At <strong>Garcia Family Medicine</strong>, we're differentâ€”and that difference shines with purpose.
-              Guided by faith and a heart for healing, we prioritize your mental and physical wellâ€‘being above all else.
+              At <strong>Garcia Family Medicine</strong>, we're different—and that difference shines with purpose.
+              Guided by faith and a heart for healing, we prioritize your mental and physical well‑being above all else.
               By leaving behind the complexities of insurance, we offer:
             </p>
             <ul className={combineStyles(
@@ -211,27 +213,27 @@ export default function LandingPage() {
               styles.careSectionP,
               mobileStyles.careSectionP
             )}>
-              Located in Blue Springs, MO, we extend our warm, trustworthy embrace to Independence, Lee's Summit, and the entire Kansas City metro area. With integrity at our core, we're here to provide family medicine that feels like a hug from aboveâ€”because your health is a sacred gift, and we cherish it!
+              Located in Blue Springs, MO, we extend our warm, trustworthy embrace to Independence, Lee's Summit, and the entire Kansas City metro area. With integrity at our core, we're here to provide family medicine that feels like a hug from above—because your health is a sacred gift, and we cherish it!
             </p>
             <h3 className={combineStyles(
               styles.careSectionH3,
               mobileStyles.careSectionH3
             )}>
-              <span className={styles.titleGradient}>Trust in Us</span> â€“ Call Today!
+              <span className={styles.titleGradient}>Trust in Us</span> – Call Today!
             </h3>
             <p className={combineStyles(
               styles.careSectionP,
               mobileStyles.careSectionP
             )}>
-              Ready to experience healthcare infused with compassion and the love of God? At Garcia Family Medicine, we're more than a practiceâ€”we're a ministry of wellness, serving Blue Springs, MO, and beyond with unwavering dedication. Whether you need a routine visit, ongoing care, or a kind ear for your mental health journey, our team is here to lift you up with trust and tenderness.
+              Ready to experience healthcare infused with compassion and the love of God? At Garcia Family Medicine, we're more than a practice—we're a ministry of wellness, serving Blue Springs, MO, and beyond with unwavering dedication. Whether you need a routine visit, ongoing care, or a kind ear for your mental health journey, our team is here to lift you up with trust and tenderness.
             </p>
             <p className={combineStyles(
               styles.careSectionP,
               mobileStyles.careSectionP
             )}>
               Pick up the phone and call&nbsp;
-              <a href="tel:816-427-5320" className={styles.textLink}>816â€‘427â€‘5320</a>&nbsp;nowâ€”let us welcome you into our family! Join the countless patients in Blue Springs, Independence, Lee's Summit, and the Kansas City metro area who've found healing and hope with us. Dial&nbsp;
-              <a href="tel:816-427-5320" className={styles.textLink}>816â€‘427â€‘5320</a>&nbsp;today and discover the joy of <strong>compassionate, faithâ€‘filled healthcare</strong> that's as reliable as it is remarkable. Your wellâ€‘being is our callingâ€”let's start this journey together!
+              <a href="tel:816-427-5320" className={styles.textLink}>816‑427‑5320</a>&nbsp;now—let us welcome you into our family! Join the countless patients in Blue Springs, Independence, Lee's Summit, and the Kansas City metro area who've found healing and hope with us. Dial&nbsp;
+              <a href="tel:816-427-5320" className={styles.textLink}>816‑427‑5320</a>&nbsp;today and discover the joy of <strong>compassionate, faith‑filled healthcare</strong> that's as reliable as it is remarkable. Your well‑being is our calling—let's start this journey together!
             </p>
             <a
               href="tel:816-427-5320"
@@ -240,7 +242,7 @@ export default function LandingPage() {
                 mobileStyles.callButton
               )}
             >
-              Call Now: 816â€‘427â€‘5320
+              Call Now: 816‑427‑5320
             </a>
           </div>
         </section>
@@ -260,8 +262,8 @@ export default function LandingPage() {
             styles.commentsSectionP,
             mobileStyles.commentsSectionP
           )}>
-            Dr. Tess is here for you! Submit your questions through our secure form for a judgmentâ€‘free response, or call&nbsp;
-            <a href="tel:816-427-5320" className={styles.textLink}>816â€‘427â€‘5320</a>&nbsp;for a personal chat.
+            Dr. Tess is here for you! Submit your questions through our secure form for a judgment‑free response, or call&nbsp;
+            <a href="tel:816-427-5320" className={styles.textLink}>816‑427‑5320</a>&nbsp;for a personal chat.
           </p>
           <button
             onClick={() => setIsPopupOpen(true)}
@@ -273,7 +275,9 @@ export default function LandingPage() {
           >
             Ask Dr. Tess
           </button>
-        </section>
+              <ServicesCarousel />
+
+</section>
 
         {/* Enter Main Site Button */}
         <section className={combineStyles(
@@ -287,7 +291,7 @@ export default function LandingPage() {
             Ready to explore our full range of services?
           </h3>
           <Link
-            href="/home"
+            href="/"
             className={combineStyles(
               styles.callButton,
               mobileStyles.callButton,
@@ -324,7 +328,7 @@ export default function LandingPage() {
                 onClick={() => setIsPopupOpen(false)}
                 aria-label="Close dialog"
               >
-                ×
+                �
               </button>
               <div style={{ padding: '2rem', textAlign: 'center' }}>
                 <h2 style={{ color: '#4169E1', fontSize: '2rem', marginBottom: '1rem' }}>Ask Dr. Tess</h2>
@@ -348,7 +352,7 @@ export default function LandingPage() {
                       gap: '0.5rem' 
                     }}
                   >
-                    📧 Email Dr. Tess
+                    ?? Email Dr. Tess
                   </a>
                   <a 
                     href="tel:816-427-5320" 
@@ -366,7 +370,7 @@ export default function LandingPage() {
                       gap: '0.5rem' 
                     }}
                   >
-                    📞 Call: (816) 427-5320
+                    ?? Call: (816) 427-5320
                   </a>
                   <a 
                     href="sms:816-427-5320" 
@@ -384,7 +388,7 @@ export default function LandingPage() {
                       gap: '0.5rem' 
                     }}
                   >
-                    💬 Text: (816) 427-5320
+                    ?? Text: (816) 427-5320
                   </a>
                 </div>
                 <p style={{ color: '#404041', fontSize: '0.9rem', marginTop: '2rem' }}>
@@ -406,4 +410,6 @@ export default function LandingPage() {
     </div>
   );
 }
+
+
 
