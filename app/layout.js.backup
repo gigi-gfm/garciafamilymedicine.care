@@ -1,4 +1,4 @@
-﻿import { Sumana } from "next/font/google";
+import { Sumana } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from '../components/smoothscrollprovider';
 
@@ -30,11 +30,6 @@ export default function RootLayout({ children }) {
         <SmoothScrollProvider>
           {children}
         </SmoothScrollProvider>
-              <chat-widget location-id="J2k1lQDLzZYnXDt4Xe5z"></chat-widget>
-        <script
-          src="https://widgets.leadconnectorhq.com/loader.js" 
-          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-        ></script>
       </body>
     </html>
   );
