@@ -19,7 +19,7 @@ export default function LandingPage() {
             Garcia Family Medicine
           </h1>
           <p className={styles.subtitle}>
-            Compassionate, Faith-Based Healthcare in Blue Springs, MO
+            Treating the whole patient: Spirit, Body, and Soul
           </p>
 
           <div className={styles.ctaContainer}>
