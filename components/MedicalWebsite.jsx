@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 
 export default function MedicalWebsite() {
@@ -36,7 +38,7 @@ export default function MedicalWebsite() {
       </div>
 
       {/* MEGA EVENT BANNER - NOVEMBER 6TH - FIRST THING VISIBLE! */}
-      <section style={styles.megaEventBanner} className="pulse-glow">
+      <section style={styles.megaEventBanner} >
         <div style={styles.urgentBadge}>🎊 EXCLUSIVE EVENT 🎊</div>
         <div style={styles.mustRsvpBanner}>⚠️ MUST RSVP ASAP - SPOTS FILLING FAST! ⚠️</div>
         
@@ -508,16 +510,21 @@ const styles = {
   },
   
   // MEGA EVENT BANNER - COMBINED FALL + VETERANS EVENT
-  megaEventBanner: {
-    background: 'linear-gradient(135deg, #dc2626 0%, #ea580c 25%, #2563eb 50%, #ea580c 75%, #dc2626 100%)',
-    backgroundSize: '400% 400%',
-    padding: '3rem 2rem',
-    paddingTop: '1rem',
-    textAlign: 'center',
-    position: 'relative',
-    overflow: 'hidden',
-    borderTop: '8px solid #eab308',
-    borderBottom: '8px solid #eab308',
+ megaEventBanner: {
+  background: 'linear-gradient(135deg, #dc2626 0%, #ea580c 25%, #2563eb 50%, #ea580c 75%, #dc2626 100%)',
+  backgroundSize: '400% 400%',
+  padding: '3rem 2rem',
+  paddingTop: '1rem',
+  textAlign: 'center',
+  position: 'relative',
+  overflow: 'visible',
+  borderTop: '8px solid #eab308',
+  borderBottom: '8px solid #eab308',
+  display: 'block',
+  minHeight: '600px',
+  width: '100%',
+  zIndex: 1,
+},,
   },
   urgentBadge: {
     display: 'inline-block',
@@ -616,29 +623,49 @@ const styles = {
     textTransform: 'uppercase',
     letterSpacing: '2px',
   },
-  urgencyNotice: {
-    background: 'rgba(220, 38, 38, 0.9)',
-    color: 'white',
-    padding: '1rem 2rem',
-    fontSize: '1.3rem',
-    fontWeight: 900,
-    letterSpacing: '1px',
-    marginTop: '1.5rem',
-    marginBottom: '0.5rem',
-    borderRadius: '8px',
-    display: 'inline-block',
-  },
-  eventHighlights: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-    gap: '1.5rem',
-    maxWidth: '1000px',
-    margin: '2rem auto',
-    padding: '0 1rem',
-  },
+  {
+  background: 'rgba(220, 38, 38, 0.95)',  // More opaque
+  color: 'white',
+  padding: '1.2rem 2.5rem',  // More padding
+  fontSize: '1.5rem',  // Bigger text
+  fontWeight: 900,
+  letterSpacing: '2px',
+  marginTop: '1.5rem',
+  marginBottom: '0.5rem',
+  borderRadius: '8px',
+  display: 'inline-block',
+  textShadow: '2px 2px 6px rgba(0,0,0,0.8)',  // Add shadow
+  border: '3px solid white',  // Add white border
+},
+eventHighlights: {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+  gap: '1.5rem',
+  maxWidth: '1000px',
+  margin: '2rem auto',
+  padding: '0 1rem',
+},
+megaEventCTAButton: {}
   highlight: {
     background: 'rgba(255,255,255,0.95)',
-    padding: '1.5rem',
+    padding: '0 1rem',
+},
+megaEventCTAButton: {
+  display: 'inline-block',
+  background: '#fbbf24',
+  color: '#1e293b',
+  padding: '1.8rem 4rem',
+  borderRadius: '50px',
+  fontSize: '1.8rem',
+  fontWeight: 900,
+  textDecoration: 'none',
+  transition: 'all 0.3s',
+  boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
+  border: '4px solid white',
+  letterSpacing: '2px',
+  textTransform: 'uppercase',
+},
+highlight: {padding: '1.5rem',
     borderRadius: '12px',
     boxShadow: '0 4px 15px rgba(0,0,0,0.3)',
     transition: 'transform 0.3s',
@@ -665,6 +692,20 @@ const styles = {
     marginLeft: 'auto',
     marginRight: 'auto',
   },
+  urgencyNotice: {
+  background: 'rgba(220, 38, 38, 0.95)',
+  color: 'white',
+  padding: '1.2rem 2.5rem',
+  fontSize: '1.5rem',
+  fontWeight: 900,
+  letterSpacing: '2px',
+  marginTop: '1.5rem',
+  marginBottom: '0.5rem',
+  borderRadius: '8px',
+  display: 'inline-block',
+  textShadow: '2px 2px 6px rgba(0,0,0,0.8)',
+  border: '3px solid white',
+},
   megaEventCTAButton: {
     display: 'inline-block',
     background: '#eab308',

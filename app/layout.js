@@ -1,7 +1,7 @@
 ﻿import { Sumana } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from '../components/smoothscrollprovider';
-
+import Script from 'next/script';
 const sumana = Sumana({ 
   subsets: ["latin"],
   weight: ["400", "700"],
@@ -30,11 +30,13 @@ export default function RootLayout({ children }) {
         <SmoothScrollProvider>
           {children}
         </SmoothScrollProvider>
-              <chat-widget location-id="J2k1lQDLzZYnXDt4Xe5z"></chat-widget>
-        <script
-          src="https://widgets.leadconnectorhq.com/loader.js" 
-          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-        ></script>
+        <Script
+  src="https://widgets.leadconnectorhq.com/loader.js"
+  data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+  strategy="lazyOnload"
+/>
+<chat-widget location-id="J2k1lQDLzZYnXDt4Xe5z" suppressHydrationWarning></chat-widget>
+<chat-widget location-id="J2k1lQDLzZYnXDt4Xe5z" suppressHydrationWarning></chat-widget>
       </body>
     </html>
   );
