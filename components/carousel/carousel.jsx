@@ -9,14 +9,14 @@ export default function Carousel() {
   const slides = [
     {
       title: "CoreLift™",
-      subtitle: "Body Contouring Without Surgery",
-      description: "Transform your body with our revolutionary CoreLift™ treatment. No surgery, no downtime.",
+      subtitle: "Pelvic Health Treatments Without Surgery",
+      description: "Transform your body with our revolutionary CoreLift™ treatment.\nNo surgery, no downtime.",
       image: "/images/corelift.png",
       gradient: "linear-gradient(135deg, #1e40af 0%, #ea580c 100%)",
       badge: "Most Popular"
     },
     {
-      title: "Independent Medical Exams",
+      title: "Independent Medical Evaluations",
       subtitle: "Professional IME Services",
       description: "Comprehensive independent medical evaluations for workers' compensation and disability cases.",
       image: "/images/ime.jpg",
@@ -118,7 +118,7 @@ export default function Carousel() {
               )}
               <h2 className={styles.slideTitle}>{slide.title}</h2>
               <h3 className={styles.slideSubtitle}>{slide.subtitle}</h3>
-              <p className={styles.slideDescription}>{slide.description}</p>
+              <p className={styles.slideDescription} style={{ whiteSpace: 'pre-line' }}>{slide.description}</p>
               <button className={styles.learnMoreButton}>
                 Learn More
               </button>
