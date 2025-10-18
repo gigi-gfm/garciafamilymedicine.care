@@ -25,11 +25,11 @@ export default function LandingPage() {
       <section className={styles.statsSection}>
         <div className={styles.statsGrid}>
           <div className={styles.statCard}>
-            <div className={styles.statNumber}>15+</div>
+            <div className={styles.statNumber}>25+</div>
             <div className={styles.statLabel}>Years of Experience</div>
           </div>
           <div className={styles.statCard}>
-            <div className={styles.statNumber}>5000+</div>
+            <div className={styles.statNumber}>10000+</div>
             <div className={styles.statLabel}>Patients Served</div>
           </div>
           <div className={styles.statCard}>
