@@ -37,7 +37,7 @@
   font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: #1e40af;
+  color: #1e3a8a;
 }
 
 .subtitle {
@@ -62,7 +62,7 @@
 }
 
 .ctaButton {
-  background: #1e40af;
+  background: #1e3a8a;
   color: white;
   padding: 1rem 2.5rem;
   border-radius: 8px;
@@ -73,7 +73,7 @@
 }
 
 .ctaButton:hover {
-  background: #1e3a8a;
+  background: #1e40af;
 }
 
 .secondaryButton {
@@ -113,7 +113,7 @@
 .statNumber {
   font-size: 3.5rem;
   font-weight: 700;
-  color: #1e40af;
+  color: #1e3a8a;
   margin-bottom: 0.5rem;
 }
 
@@ -142,4 +142,23 @@
   font-size: 1.2rem;
   color: #64748b;
   margin-bottom: 3rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .mainTitle {
+    font-size: 2.5rem;
+  }
+  
+  .subtitle {
+    font-size: 1.4rem;
+  }
+  
+  .heroDescription {
+    font-size: 1rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
 }

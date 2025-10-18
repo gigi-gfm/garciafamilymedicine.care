@@ -71,7 +71,8 @@ export default function Carousel() {
       description: "Get to know Dr. Tess and discover compassionate, personalized healthcare.",
       image: "/images/dr-tess.png",
       gradient: "linear-gradient(135deg, #60a5fa 0%, #fdba74 100%)",
-      badge: "Our Team"
+      badge: "Our Team",
+      textPosition: "top"
     }
   ]
 
@@ -100,11 +101,11 @@ export default function Carousel() {
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`${styles.slide} ${index === currentSlide ? styles.activeSlide : ''}`}
+            className={`${styles.slide} ${index === currentSlide ? styles.activeSlide : ''} ${slide.textPosition === 'top' ? styles.topAligned : ''}`}
             style={{ 
               background: slide.image 
                 ? (slide.title === "Meet Dr. Tess" 
-                    ? `linear-gradient(rgba(30, 64, 175, 0.5), rgba(234, 88, 12, 0.5)), url(${slide.image}) center/contain no-repeat`
+                    ? `linear-gradient(rgba(30, 64, 175, 0.5), rgba(234, 88, 12, 0.5)), url(${slide.image}) center bottom/contain no-repeat`
                     : `linear-gradient(rgba(30, 64, 175, 0.5), rgba(234, 88, 12, 0.5)), url(${slide.image}) center/cover`)
                 : slide.gradient 
             }}
