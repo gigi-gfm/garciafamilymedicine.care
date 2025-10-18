@@ -91,9 +91,11 @@ export default function Carousel() {
   }
 
   useEffect(() => {
-    const timer = setInterval(nextSlide, 5000)
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length)
+    }, 5000)
     return () => clearInterval(timer)
-  }, [currentSlide])
+  }, [slides.length])
 
   return (
     <div className={styles.carouselWrapper}>
