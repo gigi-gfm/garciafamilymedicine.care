@@ -523,10 +523,6 @@ const styles = {
   display: 'block',
   minHeight: '600px',
   width: '100%',
-  zIndex: 1,
-},,
-  },
-  urgentBadge: {
     display: 'inline-block',
     background: '#eab308',
     color: '#1e293b',
@@ -623,7 +619,7 @@ const styles = {
     textTransform: 'uppercase',
     letterSpacing: '2px',
   },
-  {
+ urgencyNotice: { 
   background: 'rgba(220, 38, 38, 0.95)',  // More opaque
   color: 'white',
   padding: '1.2rem 2.5rem',  // More padding
@@ -645,7 +641,21 @@ eventHighlights: {
   margin: '2rem auto',
   padding: '0 1rem',
 },
-megaEventCTAButton: {}
+megaEventCTAButton: {
+  display: 'inline-block',
+  background: '#fbbf24',
+  color: '#1e293b',
+  padding: '1.8rem 4rem',
+  borderRadius: '50px',
+  fontSize: '1.8rem',
+  fontWeight: 900,
+  textDecoration: 'none',
+  transition: 'all 0.3s',
+  boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
+  border: '4px solid white',
+  letterSpacing: '2px',
+  textTransform: 'uppercase',
+},
   highlight: {
     background: 'rgba(255,255,255,0.95)',
     padding: '0 1rem',
