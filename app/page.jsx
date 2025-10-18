@@ -2,11 +2,22 @@
 import { useState } from 'react';
 import Carousel from '../components/carousel/carousel';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './page.module.css';
 
 export default function LandingPage() {
   return (
     <div className={styles.container}>
+      <div className={styles.logoContainer}>
+        <Image 
+          src="/images/logo-new.png" 
+          alt="Garcia Family Medicine Logo" 
+          width={150} 
+          height={150}
+          className={styles.logo}
+        />
+      </div>
+      
       <section className={styles.hero}>
         <div className={styles.heroContent}>
           <h1 className={styles.mainTitle}>Garcia Family Medicine</h1>
