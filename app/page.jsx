@@ -2,50 +2,46 @@
 import { useState } from 'react';
 import Carousel from '../components/carousel/carousel';
 import Link from 'next/link';
-import Image from 'next/image';
 import styles from './page.module.css';
 
 export default function LandingPage() {
   return (
     <div className={styles.container}>
       <section className={styles.hero}>
-        <div className={styles.heroBackground}>
-          <div className={styles.gradientOverlay} />
-          <div className={styles.meshPattern} />
-        </div>
-
         <div className={styles.heroContent}>
-          <h1 className={styles.mainTitle}>
-            Garcia Family Medicine
-          </h1>
-          <p className={styles.subtitle}>
-            Treating the whole patient: Spirit, Body, and Soul
+          <h1 className={styles.mainTitle}>Garcia Family Medicine</h1>
+          <p className={styles.subtitle}>Treating the whole patient: Spirit, Body, and Soul</p>
+          <p className={styles.heroDescription}>
+            Compassionate, faith-based healthcare serving Blue Springs, Independence, 
+            Lee's Summit, and the greater Kansas City area
           </p>
-
           <div className={styles.ctaContainer}>
-            <Link href="/services" className={styles.ctaButton}>
-              Our Services
-            </Link>
-            <Link href="/contact" className={styles.secondaryButton}>
-              Contact Us
-            </Link>
+            <Link href="/contact" className={styles.ctaButton}>Schedule Appointment</Link>
+            <Link href="/services" className={styles.secondaryButton}>View Services</Link>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.statsSection}>
+        <div className={styles.statsGrid}>
+          <div className={styles.statCard}>
+            <div className={styles.statNumber}>15+</div>
+            <div className={styles.statLabel}>Years of Experience</div>
+          </div>
+          <div className={styles.statCard}>
+            <div className={styles.statNumber}>5000+</div>
+            <div className={styles.statLabel}>Patients Served</div>
+          </div>
+          <div className={styles.statCard}>
+            <div className={styles.statNumber}>100%</div>
+            <div className={styles.statLabel}>Compassionate Care</div>
           </div>
         </div>
       </section>
 
       <section className={styles.servicesSection}>
-        <h2 className={styles.sectionTitle}>Our Featured Services</h2>
-        <p className={styles.sectionSubtitle}>
-          Comprehensive healthcare services tailored to your needs
-        </p>
-        
+        <h2 className={styles.sectionTitle}>Our Services</h2>
         <Carousel />
-        
-        <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-          <Link href="/services" className={styles.ctaButton}>
-            View All Services
-          </Link>
-        </div>
       </section>
     </div>
   );
