@@ -11,7 +11,7 @@ export default function Carousel() {
       title: "CoreLift™",
       subtitle: "Body Contouring Without Surgery",
       description: "Transform your body with our revolutionary CoreLift™ treatment. No surgery, no downtime.",
-      icon: "💎",
+      image: "/images/corelift.png",
       gradient: "linear-gradient(135deg, #1e40af 0%, #ea580c 100%)",
       badge: "Most Popular"
     },
@@ -19,49 +19,49 @@ export default function Carousel() {
       title: "Independent Medical Exams",
       subtitle: "Professional IME Services",
       description: "Comprehensive independent medical evaluations for workers' compensation and disability cases.",
-      icon: "📋",
+      image: "/images/ime.jpg",
       gradient: "linear-gradient(135deg, #2563eb 0%, #f97316 100%)"
     },
     {
       title: "Weight Management",
       subtitle: "Achieve Your Health Goals",
       description: "Personalized weight management programs with medical supervision and support.",
-      icon: "⚖️",
+      image: "/images/weight-management.jpg",
       gradient: "linear-gradient(135deg, #3b82f6 0%, #fb923c 100%)"
     },
     {
       title: "DOT Physical Exams",
       subtitle: "Certified Medical Examiner",
       description: "Get your DOT physical from a certified medical examiner. Quick, professional service.",
-      icon: "🚛",
+      image: "/images/dot-exams.jpg",
       gradient: "linear-gradient(135deg, #60a5fa 0%, #fdba74 100%)"
     },
     {
       title: "Mental Health Counseling",
       subtitle: "Compassionate Care",
       description: "Professional counseling services in a supportive, faith-based environment.",
-      icon: "🧠",
+      image: "/images/counseling.jpg",
       gradient: "linear-gradient(135deg, #1e3a8a 0%, #c2410c 100%)"
     },
     {
       title: "Flexible Payment Options",
       subtitle: "CareCredit Available",
       description: "We accept CareCredit for affordable payment plans on your healthcare needs.",
-      icon: "💳",
+      image: "/images/payment.jpg",
       gradient: "linear-gradient(135deg, #1e40af 0%, #fb923c 100%)"
     },
     {
       title: "Workplace Wellness",
       subtitle: "Corporate Health Programs",
       description: "Comprehensive workplace wellness programs to keep your team healthy and productive.",
-      icon: "🏢",
+      image: "/images/workplace.jpg",
       gradient: "linear-gradient(135deg, #3b82f6 0%, #ea580c 100%)"
     },
     {
       title: "Fall Into Confidence Event",
       subtitle: "Special Event - Limited Time!",
       description: "Join us for our exclusive Fall Into Confidence event. Special pricing on select treatments!",
-      icon: "🍂",
+      image: "/images/event.png",
       gradient: "linear-gradient(135deg, #2563eb 0%, #f97316 100%)",
       badge: "Limited Time"
     },
@@ -69,7 +69,7 @@ export default function Carousel() {
       title: "Meet Dr. Tess",
       subtitle: "Your Healthcare Partner",
       description: "Get to know Dr. Tess and discover compassionate, personalized healthcare.",
-      icon: "👩‍⚕️",
+      image: "/images/dr-tess.png",
       gradient: "linear-gradient(135deg, #60a5fa 0%, #fdba74 100%)",
       badge: "Our Team"
     }
@@ -101,7 +101,13 @@ export default function Carousel() {
           <div
             key={index}
             className={`${styles.slide} ${index === currentSlide ? styles.activeSlide : ''}`}
-            style={{ background: slide.gradient }}
+            style={{ 
+              background: slide.image 
+                ? (slide.title === "Meet Dr. Tess" 
+                    ? `linear-gradient(rgba(30, 64, 175, 0.5), rgba(234, 88, 12, 0.5)), url(${slide.image}) center/contain no-repeat`
+                    : `linear-gradient(rgba(30, 64, 175, 0.5), rgba(234, 88, 12, 0.5)), url(${slide.image}) center/cover`)
+                : slide.gradient 
+            }}
           >
             <div className={styles.slideContent}>
               {slide.badge && (
@@ -109,7 +115,6 @@ export default function Carousel() {
                   ⭐ {slide.badge}
                 </div>
               )}
-              <div className={styles.slideIcon}>{slide.icon}</div>
               <h2 className={styles.slideTitle}>{slide.title}</h2>
               <h3 className={styles.slideSubtitle}>{slide.subtitle}</h3>
               <p className={styles.slideDescription}>{slide.description}</p>
