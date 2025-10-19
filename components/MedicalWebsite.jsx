@@ -1,444 +1,375 @@
-'use client';
+import React, { useState, useEffect } from 'react';
+import { Heart, Phone, Mail, MapPin, Clock, ChevronLeft, ChevronRight, Star, Calendar } from 'lucide-react';
 
-import React, { useState } from 'react';
-
-export default function MedicalWebsite() {
+export default function GarciaFamilyMedicine() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     message: ''
   });
+  
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const slides = [
+    {
+      id: 'event',
+      title: 'Fall Into Confidence',
+      subtitle: 'Veterans Appreciation Event • November 6th',
+      description: 'Join us 3-7 PM for CoreLift with Emsella demonstrations, refreshments, and special pricing. RSVP required.',
+      cta: 'RSVP Now',
+      image: '/images/event.png',
+      featured: true
+    },
+    {
+      id: 'corelift',
+      title: 'CoreLift™ Pelvic Health',
+      subtitle: 'with Emsella Technology',
+      description: 'Revolutionary non-invasive treatment for bladder control and intimate wellness',
+      cta: 'Learn More',
+      image: '/images/corelift.png'
+    },
+    {
+      id: 'ime',
+      title: 'Independent Medical Evaluations',
+      subtitle: 'Professional & Comprehensive',
+      description: 'Expert medical evaluations for legal and insurance cases',
+      cta: 'Schedule Evaluation',
+      image: '/images/ime.jpg'
+    },
+    {
+      id: 'weight',
+      title: 'Medical Weight Management',
+      subtitle: 'Personalized Programs',
+      description: 'Science-based weight loss tailored to your unique needs',
+      cta: 'Start Your Journey',
+      image: '/images/weight-management.jpg'
+    }
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, currentSlide === 0 ? 10000 : 5000);
+    return () => clearInterval(interval);
+  }, [currentSlide, slides.length]);
+
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = () => {
-    if (formData.name && formData.email && formData.phone && formData.message) {
-      alert('Thank you for your message! We will contact you soon.');
-      setFormData({ name: '', email: '', phone: '', message: '' });
-    } else {
-      alert('Please fill in all fields');
+    if (!formData.name || !formData.email || !formData.message) {
+      alert('Please fill in all required fields');
+      return;
     }
+    alert('Thank you for reaching out! We will contact you shortly.');
+    setFormData({ name: '', email: '', phone: '', message: '' });
   };
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
     <div style={styles.container}>
-      {/* Logo */}
+      {/* Fixed Logo */}
       <div style={styles.logoContainer}>
         <img 
-          src="https://via.placeholder.com/150x50/1e3a8a/ffffff?text=Garcia+Family+Medicine" 
+          src="/images/garcia-logo.png" 
           alt="Garcia Family Medicine" 
           style={styles.logo}
         />
       </div>
 
-      {/* MEGA EVENT BANNER - NOVEMBER 6TH - FIRST THING VISIBLE! */}
-      <section style={styles.megaEventBanner} >
-        <div style={styles.urgentBadge}>🎊 EXCLUSIVE EVENT 🎊</div>
-        <div style={styles.mustRsvpBanner}>⚠️ MUST RSVP ASAP - SPOTS FILLING FAST! ⚠️</div>
-        
-        {/* FIRST 5 BONUS BANNER */}
-        <div style={styles.bonusSavingsBanner}>
-          <div style={styles.bonusIcon}>💰</div>
-          <div style={styles.bonusText}>
-            <div style={styles.bonusTitle}>FIRST 5 TO RSVP RECEIVE</div>
-            <div style={styles.bonusAmount}>$150 SAVINGS!</div>
+      {/* Hero Carousel */}
+      <div style={styles.heroCarousel}>
+        {slides.map((slide, index) => (
+          <div
+            key={slide.id}
+            style={{
+              ...styles.heroSlide,
+              opacity: currentSlide === index ? 1 : 0,
+              pointerEvents: currentSlide === index ? 'auto' : 'none'
+            }}
+          >
+            <div style={{
+              ...styles.heroOverlay,
+              background: slide.featured 
+                ? 'linear-gradient(135deg, rgba(234, 88, 12, 0.9) 0%, rgba(220, 38, 38, 0.85) 100%)'
+                : 'linear-gradient(135deg, rgba(30, 58, 138, 0.85) 0%, rgba(234, 88, 12, 0.75) 100%)'
+            }} />
+            <img 
+              src={slide.image} 
+              alt={slide.title}
+              style={styles.heroImage}
+              onError={(e) => {
+                e.target.style.display = 'none';
+              }}
+            />
+            <div style={styles.heroContent}>
+              {slide.featured && (
+                <div style={styles.featuredBadge}>
+                  <Calendar size={20} style={{marginRight: '8px'}} />
+                  EXCLUSIVE EVENT
+                </div>
+              )}
+              <h1 style={styles.heroTitle}>{slide.title}</h1>
+              <p style={styles.heroSubtitle}>{slide.subtitle}</p>
+              <p style={styles.heroDescription}>{slide.description}</p>
+              <button style={styles.heroButton}>{slide.cta}</button>
+            </div>
           </div>
-          <div style={styles.bonusIcon}>💰</div>
-        </div>
+        ))}
 
-        <h2 style={styles.megaEventTitle}>
-          FALL INTO CONFIDENCE + VETERANS APPRECIATION EVENT
-        </h2>
-        <div style={styles.eventDateBox}>
-          <div style={styles.eventDate}>📅 THURSDAY, NOVEMBER 6TH</div>
-          <div style={styles.eventTime}>🕒 3:00 PM - 7:00 PM</div>
-          <div style={styles.rsvpRequired}>✋ RSVP REQUIRED ✋</div>
-        </div>
-        <div style={styles.eventHighlights}>
-          <div style={styles.highlight}>
-            <span style={styles.highlightIcon}>🎁</span>
-            <span style={styles.highlightText}>BRING A FRIEND<br/>WIN A PRIZE!</span>
-          </div>
-          <div style={styles.highlight}>
-            <span style={styles.highlightIcon}>🇺🇸</span>
-            <span style={styles.highlightText}>20% OFF<br/>FOR VETERANS</span>
-          </div>
-          <div style={styles.highlight}>
-            <span style={styles.highlightIcon}>🪑</span>
-            <span style={styles.highlightText}>LIVE EMSELLA<br/>DEMOS</span>
-          </div>
-          <div style={styles.highlight}>
-            <span style={styles.highlightIcon}>🍪</span>
-            <span style={styles.highlightText}>REFRESHMENTS<br/>PROVIDED</span>
-          </div>
-        </div>
-        <p style={styles.eventSubtext}>
-          Experience our revolutionary treatments • Meet our team • Special event pricing • Fun giveaways!
-        </p>
-        <div style={styles.urgencyNotice}>🔥 LIMITED AVAILABILITY - RESERVE YOUR SPOT TODAY! 🔥</div>
-        <div style={styles.bannerCTA}>
-          <a href="#contact" style={styles.megaEventCTAButton}>
-            ⚡ RSVP NOW - DON'T MISS OUT! ⚡
-          </a>
-        </div>
-      </section>
+        {/* Carousel Controls */}
+        <button style={{...styles.carouselButton, ...styles.carouselButtonLeft}} onClick={prevSlide}>
+          <ChevronLeft size={32} />
+        </button>
+        <button style={{...styles.carouselButton, ...styles.carouselButtonRight}} onClick={nextSlide}>
+          <ChevronRight size={32} />
+        </button>
 
-      {/* Hero Section */}
-      <section style={styles.hero}>
-        <div style={styles.heroContent}>
-          <h1 style={styles.mainTitle}>Garcia Family Medicine</h1>
-          <h2 style={styles.subtitle}>Compassionate Care for Your Whole Family</h2>
-          <p style={styles.heroDescription}>
-            Providing comprehensive healthcare services with a personal touch. 
-            Your health and wellness are our top priorities.
-          </p>
-          <div style={styles.ctaContainer}>
-            <a href="#contact" style={styles.ctaButton}>Schedule Appointment</a>
-            <a href="#services" style={styles.secondaryButton}>Our Services</a>
-          </div>
+        {/* Navigation Dots */}
+        <div style={styles.carouselDots}>
+          {slides.map((slide, index) => (
+            <button
+              key={index}
+              style={{
+                ...styles.dot,
+                background: currentSlide === index ? '#ea580c' : 'rgba(255, 255, 255, 0.5)',
+                width: slide.featured && currentSlide === index ? '40px' : '12px',
+                borderRadius: slide.featured && currentSlide === index ? '6px' : '50%'
+              }}
+              onClick={() => setCurrentSlide(index)}
+            />
+          ))}
         </div>
-      </section>
+      </div>
 
       {/* Stats Section */}
-      <section style={styles.statsSection}>
+      <div style={styles.statsSection}>
         <div style={styles.statsGrid}>
           <div style={styles.statCard}>
-            <div style={styles.statNumber}>15+</div>
-            <div style={styles.statLabel}>Years of Experience</div>
+            <div style={styles.statNumber}>25+</div>
+            <div style={styles.statLabel}>Years Experience</div>
           </div>
           <div style={styles.statCard}>
-            <div style={styles.statNumber}>5000+</div>
+            <div style={styles.statNumber}>10,000+</div>
             <div style={styles.statLabel}>Patients Served</div>
           </div>
           <div style={styles.statCard}>
             <div style={styles.statNumber}>98%</div>
-            <div style={styles.statLabel}>Patient Satisfaction</div>
-          </div>
-          <div style={styles.statCard}>
-            <div style={styles.statNumber}>24/7</div>
-            <div style={styles.statLabel}>Emergency Support</div>
+            <div style={styles.statLabel}>Satisfaction Rate</div>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* New Patients Banner */}
-      <section style={styles.eventBanner}>
-        <h3 style={styles.eventTitle}>🎉 Now Accepting New Patients!</h3>
-        <p style={styles.eventDetails}>Call today to schedule your first appointment</p>
-      </section>
-
-      {/* Services Section */}
-      <section id="services" style={styles.servicesSection}>
-        <h2 style={styles.sectionTitle}>Our Services</h2>
-        <p style={styles.sectionSubtitle}>Comprehensive healthcare for every stage of life</p>
+      {/* Top 3 Services Section */}
+      <div style={styles.servicesSection}>
+        <h2 style={styles.sectionTitle}>Our Featured Services</h2>
+        <p style={styles.sectionSubtitle}>Specialized care tailored to your unique needs</p>
         
         <div style={styles.servicesGrid}>
-          <div style={styles.serviceCard}>
-            <div style={styles.serviceIcon}>👨‍⚕️</div>
-            <h3 style={styles.serviceTitle}>Primary Care</h3>
-            <p style={styles.serviceDescription}>
-              Routine check-ups, preventive care, and chronic disease management for the whole family.
-            </p>
-          </div>
-          
-          <div style={styles.serviceCard}>
-            <div style={styles.serviceIcon}>💉</div>
-            <h3 style={styles.serviceTitle}>Vaccinations</h3>
-            <p style={styles.serviceDescription}>
-              Complete vaccination services for children and adults, including flu shots and travel vaccines.
-            </p>
-          </div>
-          
-          <div style={styles.serviceCard}>
-            <div style={styles.serviceIcon}>🩺</div>
-            <h3 style={styles.serviceTitle}>Wellness Exams</h3>
-            <p style={styles.serviceDescription}>
-              Annual physicals, health screenings, and personalized wellness plans.
-            </p>
-          </div>
-          
-          <div style={styles.serviceCard}>
-            <div style={styles.serviceIcon}>👶</div>
-            <h3 style={styles.serviceTitle}>Pediatric Care</h3>
-            <p style={styles.serviceDescription}>
-              Specialized care for infants, children, and adolescents with a gentle approach.
-            </p>
-          </div>
-          
-          <div style={styles.serviceCard}>
-            <div style={styles.serviceIcon}>💊</div>
-            <h3 style={styles.serviceTitle}>Chronic Disease Management</h3>
-            <p style={styles.serviceDescription}>
-              Expert management of diabetes, hypertension, asthma, and other chronic conditions.
-            </p>
-          </div>
-          
-          <div style={styles.serviceCard}>
-            <div style={styles.serviceIcon}>🔬</div>
-            <h3 style={styles.serviceTitle}>Lab Services</h3>
-            <p style={styles.serviceDescription}>
-              On-site laboratory testing for quick and accurate diagnostic results.
-            </p>
-          </div>
+          {[
+            {
+              title: 'CoreLift™ Pelvic Health',
+              subtitle: 'with Emsella Technology',
+              image: '/images/services/corelift-hero.jpg',
+              description: 'Revolutionary FDA-cleared treatment for bladder control and intimate wellness. Non-invasive, comfortable, and highly effective.',
+              benefits: ['Non-invasive', 'No downtime', 'FDA cleared', '95% success rate']
+            },
+            {
+              title: 'Independent Medical Evaluations',
+              subtitle: 'Professional & Comprehensive',
+              image: '/images/services/ime-hero.jpg',
+              description: 'Expert medical evaluations for legal and insurance cases. Thorough, objective assessments you can trust.',
+              benefits: ['Expert analysis', 'Detailed reports', 'Legal support', 'Fast turnaround']
+            },
+            {
+              title: 'Medical Weight Management',
+              subtitle: 'Personalized Programs',
+              image: '/images/services/weight-hero.jpg',
+              description: 'Science-based weight loss programs tailored to your metabolism, lifestyle, and health goals.',
+              benefits: ['Custom plans', 'Medical supervision', 'Proven results', 'Ongoing support']
+            }
+          ].map((service, index) => (
+            <div key={index} style={styles.serviceCard}>
+              <div style={styles.serviceImageContainer}>
+                <img 
+                  src={service.image} 
+                  alt={service.title}
+                  style={styles.serviceImage}
+                  onError={(e) => {
+                    e.target.style.background = 'linear-gradient(135deg, #1e3a8a 0%, #ea580c 100%)';
+                    e.target.style.display = 'block';
+                  }}
+                />
+                <div style={styles.serviceOverlay} />
+              </div>
+              <div style={styles.serviceContent}>
+                <h3 style={styles.serviceTitle}>{service.title}</h3>
+                <p style={styles.serviceSubtitle}>{service.subtitle}</p>
+                <p style={styles.serviceDescription}>{service.description}</p>
+                <div style={styles.benefitsList}>
+                  {service.benefits.map((benefit, idx) => (
+                    <div key={idx} style={styles.benefitItem}>
+                      <div style={styles.checkmark}>✓</div>
+                      {benefit}
+                    </div>
+                  ))}
+                </div>
+                <button style={styles.serviceButton}>Learn More</button>
+              </div>
+            </div>
+          ))}
         </div>
-      </section>
+      </div>
 
-      {/* About Section */}
-      <section style={styles.aboutSection}>
-        <div style={styles.aboutContent}>
-          <div style={styles.aboutText}>
-            <h2 style={styles.aboutTitle}>About Dr. Garcia</h2>
-            <p style={styles.aboutParagraph}>
-              With over 15 years of experience in family medicine, Dr. Garcia is dedicated to 
-              providing personalized, compassionate care to patients of all ages.
-            </p>
-            <p style={styles.aboutParagraph}>
-              Our practice focuses on building long-term relationships with our patients, 
-              understanding their unique health needs, and providing comprehensive care in a 
-              warm, welcoming environment.
-            </p>
-            <p style={styles.aboutParagraph}>
-              We believe in treating the whole person, not just symptoms, and working together 
-              with our patients to achieve optimal health and wellness.
-            </p>
-          </div>
-          <div>
-            <img 
-              src="https://via.placeholder.com/500x400/1e3a8a/ffffff?text=Dr.+Garcia" 
-              alt="Dr. Garcia" 
-              style={styles.aboutImage}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section style={styles.testimonialsSection}>
+      {/* Testimonials Section */}
+      <div style={styles.testimonialsSection}>
         <h2 style={styles.sectionTitle}>What Our Patients Say</h2>
         <div style={styles.testimonialsGrid}>
-          <div style={styles.testimonialCard}>
-            <p style={styles.testimonialText}>
-              "Dr. Garcia took the time to listen to all my concerns and explained everything 
-              clearly. I finally feel like I have a doctor who truly cares!"
-            </p>
-            <div style={styles.testimonialAuthor}>Maria Rodriguez</div>
-            <div style={styles.testimonialRole}>Patient since 2019</div>
-          </div>
-          
-          <div style={styles.testimonialCard}>
-            <p style={styles.testimonialText}>
-              "The entire staff is friendly and professional. They always make my kids feel 
-              comfortable during visits. Highly recommend!"
-            </p>
-            <div style={styles.testimonialAuthor}>John Smith</div>
-            <div style={styles.testimonialRole}>Patient since 2020</div>
-          </div>
-          
-          <div style={styles.testimonialCard}>
-            <p style={styles.testimonialText}>
-              "Best family doctor we've ever had. Dr. Garcia is knowledgeable, caring, and 
-              always available when we need help."
-            </p>
-            <div style={styles.testimonialAuthor}>Sarah Johnson</div>
-            <div style={styles.testimonialRole}>Patient since 2018</div>
-          </div>
+          {[
+            {
+              text: "Dr. Tess truly cares about her patients. She takes the time to listen and provides excellent care.",
+              author: "Sarah M.",
+              rating: 5
+            },
+            {
+              text: "The CoreLift treatment has been life-changing. I'm so grateful for this practice!",
+              author: "Jennifer K.",
+              rating: 5
+            },
+            {
+              text: "Professional, compassionate, and thorough. Best family medicine practice in Blue Springs!",
+              author: "Michael R.",
+              rating: 5
+            }
+          ].map((testimonial, index) => (
+            <div key={index} style={styles.testimonialCard}>
+              <div style={styles.stars}>
+                {[...Array(testimonial.rating)].map((_, i) => (
+                  <Star key={i} size={20} fill="#ea580c" color="#ea580c" />
+                ))}
+              </div>
+              <p style={styles.testimonialText}>"{testimonial.text}"</p>
+              <p style={styles.testimonialAuthor}>— {testimonial.author}</p>
+            </div>
+          ))}
         </div>
-      </section>
+      </div>
 
       {/* Contact Section */}
-      <section id="contact" style={styles.contactSection}>
-        <h2 style={styles.sectionTitle}>Get In Touch</h2>
-        <p style={styles.sectionSubtitle}>Schedule an appointment or ask us a question</p>
+      <div style={styles.contactSection}>
+        <h2 style={styles.contactTitle}>Get In Touch</h2>
+        <p style={styles.contactSubtitle}>Ready to start your journey to better health?</p>
         
-        <div style={styles.contactForm}>
-          <div style={styles.formGroup}>
-            <label style={styles.formLabel}>Name</label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              style={styles.formInput}
-            />
-          </div>
-          
-          <div style={styles.formGroup}>
-            <label style={styles.formLabel}>Email</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              style={styles.formInput}
-            />
-          </div>
-          
-          <div style={styles.formGroup}>
-            <label style={styles.formLabel}>Phone</label>
-            <input
-              type="tel"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              style={styles.formInput}
-            />
-          </div>
-          
-          <div style={styles.formGroup}>
-            <label style={styles.formLabel}>Message</label>
-            <textarea
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              style={styles.formTextarea}
-            />
-          </div>
-          
-          <button onClick={handleSubmit} style={styles.submitButton}>
-            Send Message
-          </button>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer style={styles.footer}>
-        <div style={styles.footerContent}>
-          <div style={styles.footerSection}>
-            <h3 style={styles.footerTitle}>Garcia Family Medicine</h3>
-            <p style={styles.footerText}>
-              Providing quality healthcare to our community for over 15 years.
-            </p>
-          </div>
-          
-          <div style={styles.footerSection}>
-            <h3 style={styles.footerTitle}>Contact Info</h3>
-            <p style={styles.footerText}>123 Medical Plaza Dr.</p>
-            <p style={styles.footerText}>Blue Springs, MO 64015</p>
-            <p style={styles.footerText}>Phone: (816) 555-1234</p>
-            <p style={styles.footerText}>Email: info@garciafamilymedicine.care</p>
-          </div>
-          
-          <div style={styles.footerSection}>
-            <h3 style={styles.footerTitle}>Hours</h3>
-            <p style={styles.footerText}>Monday - Friday: 8am - 6pm</p>
-            <p style={styles.footerText}>Saturday: 9am - 2pm</p>
-            <p style={styles.footerText}>Sunday: Closed</p>
-          </div>
-          
-          <div style={styles.footerSection}>
-            <h3 style={styles.footerTitle}>Follow Us</h3>
-            <div style={styles.socialLinks}>
-              <a href="#" style={styles.socialIcon}>📘</a>
-              <a href="#" style={styles.socialIcon}>📷</a>
-              <a href="#" style={styles.socialIcon}>🐦</a>
+        <div style={styles.contactGrid}>
+          <div style={styles.contactInfo}>
+            <div style={styles.contactItem}>
+              <Phone size={24} color="#ea580c" />
+              <div>
+                <div style={styles.contactLabel}>Phone</div>
+                <div style={styles.contactValue}>(816) 229-5900</div>
+              </div>
+            </div>
+            <div style={styles.contactItem}>
+              <Mail size={24} color="#ea580c" />
+              <div>
+                <div style={styles.contactLabel}>Email</div>
+                <div style={styles.contactValue}>info@garciafamilymedicine.care</div>
+              </div>
+            </div>
+            <div style={styles.contactItem}>
+              <MapPin size={24} color="#ea580c" />
+              <div>
+                <div style={styles.contactLabel}>Location</div>
+                <div style={styles.contactValue}>Blue Springs, MO</div>
+              </div>
+            </div>
+            <div style={styles.contactItem}>
+              <Clock size={24} color="#ea580c" />
+              <div>
+                <div style={styles.contactLabel}>Hours</div>
+                <div style={styles.contactValue}>Mon-Fri: 8AM-5PM</div>
+              </div>
             </div>
           </div>
+
+          <div style={styles.contactForm}>
+            <div style={styles.formGroup}>
+              <label style={styles.formLabel}>Name *</label>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
+                style={styles.formInput}
+              />
+            </div>
+            <div style={styles.formGroup}>
+              <label style={styles.formLabel}>Email *</label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                style={styles.formInput}
+              />
+            </div>
+            <div style={styles.formGroup}>
+              <label style={styles.formLabel}>Phone</label>
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleInputChange}
+                style={styles.formInput}
+              />
+            </div>
+            <div style={styles.formGroup}>
+              <label style={styles.formLabel}>Message *</label>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
+                style={styles.formTextarea}
+                rows="4"
+              />
+            </div>
+            <button onClick={handleSubmit} style={styles.submitButton}>
+              Send Message
+            </button>
+          </div>
         </div>
-        
-        <div style={styles.footerBottom}>
-          <p>© 2024 Garcia Family Medicine. All rights reserved.</p>
+      </div>
+
+      {/* Footer */}
+      <div style={styles.footer}>
+        <div style={styles.footerContent}>
+          <div>
+            <div style={styles.footerLogo}>
+              <Heart size={32} color="#ea580c" />
+              <span style={styles.footerLogoText}>Garcia Family Medicine</span>
+            </div>
+            <p style={styles.footerTagline}>Treating the whole patient: Spirit, Body, and Soul</p>
+          </div>
+          <div style={styles.footerCopyright}>
+            © 2019-{new Date().getFullYear()} Garcia Family Medicine. All rights reserved.
+          </div>
         </div>
-      </footer>
-
-      {/* CSS Animations */}
-      <style>{`
-        @keyframes pulseGlow {
-          0%, 100% {
-            box-shadow: 0 0 30px rgba(220, 38, 38, 0.6), 0 0 60px rgba(37, 99, 235, 0.5), 0 0 90px rgba(234, 179, 8, 0.4);
-            transform: scale(1);
-          }
-          50% {
-            box-shadow: 0 0 60px rgba(220, 38, 38, 1), 0 0 120px rgba(37, 99, 235, 0.8), 0 0 180px rgba(234, 179, 8, 0.6);
-            transform: scale(1.03);
-          }
-        }
-
-        @keyframes glowGreen {
-          0%, 100% {
-            box-shadow: 0 8px 30px rgba(22, 163, 74, 0.6);
-            transform: scale(1);
-          }
-          50% {
-            box-shadow: 0 12px 50px rgba(22, 163, 74, 1), 0 0 80px rgba(251, 191, 36, 0.6);
-            transform: scale(1.02);
-          }
-        }
-
-        @keyframes bounce {
-          0%, 100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
-        }
-
-        @keyframes autumnGlow {
-          0%, 100% {
-            box-shadow: 0 0 20px rgba(234, 88, 12, 0.5), 0 0 40px rgba(146, 64, 14, 0.3);
-            transform: scale(1);
-          }
-          50% {
-            box-shadow: 0 0 40px rgba(234, 88, 12, 0.9), 0 0 80px rgba(146, 64, 14, 0.6), 0 0 120px rgba(251, 146, 60, 0.4);
-            transform: scale(1.02);
-          }
-        }
-
-        @keyframes buttonPulse {
-          0%, 100% {
-            transform: scale(1);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-          }
-          50% {
-            transform: scale(1.05);
-            box-shadow: 0 15px 50px rgba(234, 179, 8, 0.8);
-          }
-        }
-
-        @keyframes flashUrgent {
-          0%, 100% {
-            opacity: 1;
-            transform: scale(1);
-          }
-          50% {
-            opacity: 0.85;
-            transform: scale(1.02);
-          }
-        }
-
-        @keyframes shimmer {
-          0% {
-            background-position: -1000px 0;
-          }
-          100% {
-            background-position: 1000px 0;
-          }
-        }
-
-        .pulse-glow {
-          animation: pulseGlow 3s ease-in-out infinite;
-        }
-
-        .autumn-glow {
-          animation: autumnGlow 3s ease-in-out infinite;
-        }
-      `}</style>
+      </div>
     </div>
   );
 }
 
 const styles = {
   container: {
+    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
     minHeight: '100vh',
     background: 'white',
-    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
   },
+  
   logoContainer: {
     position: 'fixed',
     top: '20px',
@@ -446,297 +377,138 @@ const styles = {
     zIndex: 1000,
     background: 'white',
     padding: '10px',
-    borderRadius: '8px',
-    boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+    borderRadius: '12px',
+    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
   },
   logo: {
     display: 'block',
+    width: '60px',
+    height: '60px',
+    borderRadius: '8px',
   },
-  hero: {
-    background: 'white',
-    padding: '4rem 2rem',
-    textAlign: 'center',
-    borderBottom: '1px solid #e5e7eb',
+  
+  heroCarousel: {
+    position: 'relative',
+    height: '600px',
+    overflow: 'hidden',
+  },
+  heroSlide: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    transition: 'opacity 1s ease-in-out',
+  },
+  heroImage: {
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+  },
+  heroOverlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    zIndex: 1,
   },
   heroContent: {
-    maxWidth: '900px',
-    margin: '0 auto',
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    textAlign: 'center',
+    color: 'white',
+    zIndex: 2,
+    maxWidth: '800px',
+    padding: '0 2rem',
   },
-  mainTitle: {
+  featuredBadge: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    background: 'rgba(255, 255, 255, 0.95)',
+    color: '#dc2626',
+    padding: '0.75rem 1.5rem',
+    borderRadius: '50px',
+    fontSize: '0.9rem',
+    fontWeight: 700,
+    marginBottom: '1.5rem',
+    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)',
+    animation: 'pulse 2s infinite',
+  },
+  heroTitle: {
     fontSize: '3.5rem',
     fontWeight: 700,
     marginBottom: '1rem',
-    color: '#1e3a8a',
+    textShadow: '0 2px 10px rgba(0, 0, 0, 0.3)',
   },
-  subtitle: {
+  heroSubtitle: {
     fontSize: '1.8rem',
     marginBottom: '1rem',
-    color: '#ea580c',
     fontWeight: 500,
   },
   heroDescription: {
-    fontSize: '1.2rem',
+    fontSize: '1.3rem',
     marginBottom: '2rem',
-    color: '#64748b',
     lineHeight: 1.6,
+    opacity: 0.95,
   },
-  ctaContainer: {
-    display: 'flex',
-    gap: '1rem',
-    justifyContent: 'center',
-    flexWrap: 'wrap',
-  },
-  ctaButton: {
-    background: '#1e3a8a',
-    color: 'white',
-    padding: '1rem 2.5rem',
-    borderRadius: '8px',
-    fontSize: '1.1rem',
-    fontWeight: 600,
-    textDecoration: 'none',
-    transition: 'background 0.3s',
-    cursor: 'pointer',
-  },
-  secondaryButton: {
+  heroButton: {
     background: '#ea580c',
     color: 'white',
-    padding: '1rem 2.5rem',
-    borderRadius: '8px',
+    padding: '1.2rem 3rem',
     fontSize: '1.1rem',
     fontWeight: 600,
-    textDecoration: 'none',
-    transition: 'background 0.3s',
+    border: 'none',
+    borderRadius: '50px',
     cursor: 'pointer',
+    transition: 'all 0.3s',
+    boxShadow: '0 4px 20px rgba(234, 88, 12, 0.4)',
   },
   
-  // MEGA EVENT BANNER - COMBINED FALL + VETERANS EVENT
- megaEventBanner: {
-  background: 'linear-gradient(135deg, #dc2626 0%, #ea580c 25%, #2563eb 50%, #ea580c 75%, #dc2626 100%)',
-  backgroundSize: '400% 400%',
-  padding: '3rem 2rem',
-  paddingTop: '1rem',
-  textAlign: 'center',
-  position: 'relative',
-  overflow: 'visible',
-  borderTop: '8px solid #eab308',
-  borderBottom: '8px solid #eab308',
-  display: 'block',
-  minHeight: '600px',
-  width: '100%',
-    display: 'inline-block',
-    background: '#eab308',
-    color: '#1e293b',
-    padding: '0.75rem 2rem',
-    borderRadius: '30px',
-    fontSize: '1rem',
-    fontWeight: 900,
-    marginBottom: '1rem',
-    letterSpacing: '3px',
-    boxShadow: '0 4px 15px rgba(234, 179, 8, 0.6)',
-  },
-  mustRsvpBanner: {
-    background: '#dc2626',
-    color: 'white',
-    padding: '1rem 2rem',
-    fontSize: '1.4rem',
-    fontWeight: 900,
-    letterSpacing: '2px',
-    marginBottom: '1.5rem',
-    boxShadow: '0 4px 20px rgba(220, 38, 38, 0.8)',
-    borderRadius: '8px',
-    animation: 'flashUrgent 2s ease-in-out infinite',
-  },
-  bonusSavingsBanner: {
-    background: 'linear-gradient(135deg, #16a34a 0%, #22c55e 100%)',
-    padding: '1.5rem 2rem',
-    marginBottom: '2rem',
-    borderRadius: '15px',
+  carouselButton: {
+    position: 'absolute',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    background: 'rgba(255, 255, 255, 0.9)',
+    border: 'none',
+    borderRadius: '50%',
+    width: '50px',
+    height: '50px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: '2rem',
-    boxShadow: '0 8px 30px rgba(22, 163, 74, 0.6)',
-    animation: 'glowGreen 2.5s ease-in-out infinite',
-    border: '4px solid #fbbf24',
-    maxWidth: '900px',
-    margin: '0 auto 2rem auto',
-  },
-  bonusIcon: {
-    fontSize: '3.5rem',
-    animation: 'bounce 1s ease-in-out infinite',
-  },
-  bonusText: {
-    textAlign: 'center',
-  },
-  bonusTitle: {
-    color: 'white',
-    fontSize: '1.3rem',
-    fontWeight: 700,
-    letterSpacing: '2px',
-    marginBottom: '0.5rem',
-    textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
-  },
-  bonusAmount: {
-    color: '#fbbf24',
-    fontSize: '3rem',
-    fontWeight: 900,
-    letterSpacing: '3px',
-    textShadow: '3px 3px 6px rgba(0,0,0,0.5)',
-  },
-  megaEventTitle: {
-    color: 'white',
-    fontSize: '2.8rem',
-    fontWeight: 900,
-    margin: '0 0 1.5rem 0',
-    textShadow: '4px 4px 8px rgba(0,0,0,0.7)',
-    letterSpacing: '2px',
-    lineHeight: '1.2',
-  },
-  eventDateBox: {
-    background: 'rgba(255,255,255,0.95)',
-    display: 'inline-block',
-    padding: '1.5rem 3rem',
-    borderRadius: '15px',
-    marginBottom: '2rem',
-    boxShadow: '0 8px 30px rgba(0,0,0,0.4)',
-  },
-  eventDate: {
-    color: '#dc2626',
-    fontSize: '2rem',
-    fontWeight: 900,
-    marginBottom: '0.5rem',
-  },
-  eventTime: {
-    color: '#ea580c',
-    fontSize: '1.8rem',
-    fontWeight: 800,
-  },
-  rsvpRequired: {
-    marginTop: '0.75rem',
-    color: '#dc2626',
-    fontSize: '1.3rem',
-    fontWeight: 900,
-    textTransform: 'uppercase',
-    letterSpacing: '2px',
-  },
- urgencyNotice: { 
-  background: 'rgba(220, 38, 38, 0.95)',  // More opaque
-  color: 'white',
-  padding: '1.2rem 2.5rem',  // More padding
-  fontSize: '1.5rem',  // Bigger text
-  fontWeight: 900,
-  letterSpacing: '2px',
-  marginTop: '1.5rem',
-  marginBottom: '0.5rem',
-  borderRadius: '8px',
-  display: 'inline-block',
-  textShadow: '2px 2px 6px rgba(0,0,0,0.8)',  // Add shadow
-  border: '3px solid white',  // Add white border
-},
-eventHighlights: {
-  display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-  gap: '1.5rem',
-  maxWidth: '1000px',
-  margin: '2rem auto',
-  padding: '0 1rem',
-},
-megaEventCTAButton: {
-  display: 'inline-block',
-  background: '#fbbf24',
-  color: '#1e293b',
-  padding: '1.8rem 4rem',
-  borderRadius: '50px',
-  fontSize: '1.8rem',
-  fontWeight: 900,
-  textDecoration: 'none',
-  transition: 'all 0.3s',
-  boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
-  border: '4px solid white',
-  letterSpacing: '2px',
-  textTransform: 'uppercase',
-},
-  highlight: {
-    background: 'rgba(255,255,255,0.95)',
-    padding: '0 1rem',
-},
-megaEventCTAButton: {
-  display: 'inline-block',
-  background: '#fbbf24',
-  color: '#1e293b',
-  padding: '1.8rem 4rem',
-  borderRadius: '50px',
-  fontSize: '1.8rem',
-  fontWeight: 900,
-  textDecoration: 'none',
-  transition: 'all 0.3s',
-  boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
-  border: '4px solid white',
-  letterSpacing: '2px',
-  textTransform: 'uppercase',
-},
-highlight: {padding: '1.5rem',
-    borderRadius: '12px',
-    boxShadow: '0 4px 15px rgba(0,0,0,0.3)',
-    transition: 'transform 0.3s',
-  },
-  highlightIcon: {
-    fontSize: '3rem',
-    display: 'block',
-    marginBottom: '0.5rem',
-  },
-  highlightText: {
-    color: '#1e293b',
-    fontSize: '1.1rem',
-    fontWeight: 800,
-    lineHeight: '1.3',
-    display: 'block',
-  },
-  eventSubtext: {
-    color: 'white',
-    fontSize: '1.3rem',
-    fontWeight: 600,
-    margin: '1.5rem 0 2rem 0',
-    textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
-    maxWidth: '900px',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-  },
-  urgencyNotice: {
-  background: 'rgba(220, 38, 38, 0.95)',
-  color: 'white',
-  padding: '1.2rem 2.5rem',
-  fontSize: '1.5rem',
-  fontWeight: 900,
-  letterSpacing: '2px',
-  marginTop: '1.5rem',
-  marginBottom: '0.5rem',
-  borderRadius: '8px',
-  display: 'inline-block',
-  textShadow: '2px 2px 6px rgba(0,0,0,0.8)',
-  border: '3px solid white',
-},
-  megaEventCTAButton: {
-    display: 'inline-block',
-    background: '#eab308',
-    color: '#1e293b',
-    padding: '1.5rem 3.5rem',
-    borderRadius: '50px',
-    fontSize: '1.5rem',
-    fontWeight: 900,
-    textDecoration: 'none',
+    cursor: 'pointer',
+    zIndex: 3,
     transition: 'all 0.3s',
-    boxShadow: '0 10px 30px rgba(0,0,0,0.4)',
-    border: '4px solid white',
-    letterSpacing: '2px',
-    animation: 'buttonPulse 2s ease-in-out infinite',
+    boxShadow: '0 2px 10px rgba(0, 0, 0, 0.2)',
   },
-  bannerCTA: {
-    marginTop: '2rem',
+  carouselButtonLeft: {
+    left: '20px',
+  },
+  carouselButtonRight: {
+    right: '20px',
+  },
+  carouselDots: {
+    position: 'absolute',
+    bottom: '30px',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    display: 'flex',
+    gap: '10px',
+    zIndex: 3,
+  },
+  dot: {
+    height: '12px',
+    borderRadius: '50%',
+    border: 'none',
+    cursor: 'pointer',
+    transition: 'all 0.3s',
   },
   
   statsSection: {
-    padding: '3rem 2rem',
+    padding: '4rem 2rem',
     background: '#f8fafc',
   },
   statsGrid: {
@@ -744,120 +516,138 @@ highlight: {padding: '1.5rem',
     margin: '0 auto',
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-    gap: '2rem',
+    gap: '3rem',
   },
   statCard: {
     textAlign: 'center',
-    padding: '1.5rem',
   },
   statNumber: {
-    fontSize: '3.5rem',
+    fontSize: '4rem',
     fontWeight: 700,
     color: '#1e3a8a',
     marginBottom: '0.5rem',
   },
   statLabel: {
-    fontSize: '1.1rem',
+    fontSize: '1.2rem',
     color: '#64748b',
     fontWeight: 500,
   },
-  eventBanner: {
-    background: 'linear-gradient(90deg, #ea580c 0%, #f97316 50%, #ea580c 100%)',
-    padding: '1.5rem 2rem',
-    textAlign: 'center',
-    boxShadow: '0 4px 20px rgba(234, 88, 12, 0.5)',
-  },
-  eventTitle: {
-    color: 'white',
-    fontSize: '2rem',
-    fontWeight: 700,
-    margin: 0,
-  },
-  eventDetails: {
-    color: 'white',
-    fontSize: '1.2rem',
-    margin: '0.5rem 0 0 0',
-  },
+  
   servicesSection: {
-    padding: '4rem 2rem',
+    padding: '5rem 2rem',
     background: 'white',
   },
   sectionTitle: {
-    textAlign: 'center',
-    fontSize: '2.5rem',
+    fontSize: '3rem',
     fontWeight: 700,
+    textAlign: 'center',
     marginBottom: '1rem',
-    color: '#1e293b',
+    color: '#1e3a8a',
   },
   sectionSubtitle: {
+    fontSize: '1.3rem',
     textAlign: 'center',
-    fontSize: '1.2rem',
+    marginBottom: '4rem',
     color: '#64748b',
-    marginBottom: '3rem',
   },
   servicesGrid: {
-    maxWidth: '1200px',
+    maxWidth: '1400px',
     margin: '0 auto',
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-    gap: '2rem',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+    gap: '3rem',
   },
   serviceCard: {
     background: 'white',
-    border: '2px solid #e5e7eb',
-    borderRadius: '12px',
-    padding: '2rem',
-    textAlign: 'center',
-    transition: 'all 0.3s',
+    borderRadius: '20px',
+    overflow: 'hidden',
+    boxShadow: '0 10px 40px rgba(0, 0, 0, 0.1)',
+    transition: 'transform 0.3s, box-shadow 0.3s',
+    cursor: 'pointer',
   },
-  serviceIcon: {
-    fontSize: '3rem',
-    marginBottom: '1rem',
+  serviceImageContainer: {
+    position: 'relative',
+    height: '250px',
+    overflow: 'hidden',
+  },
+  serviceImage: {
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    transition: 'transform 0.3s',
+  },
+  serviceOverlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    background: 'linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.3) 100%)',
+  },
+  serviceContent: {
+    padding: '2rem',
   },
   serviceTitle: {
-    fontSize: '1.5rem',
+    fontSize: '1.8rem',
+    fontWeight: 700,
+    color: '#1e3a8a',
+    marginBottom: '0.5rem',
+  },
+  serviceSubtitle: {
+    fontSize: '1.1rem',
+    color: '#ea580c',
     fontWeight: 600,
     marginBottom: '1rem',
-    color: '#1e3a8a',
   },
   serviceDescription: {
     fontSize: '1rem',
     color: '#64748b',
-    lineHeight: 1.6,
+    lineHeight: 1.7,
+    marginBottom: '1.5rem',
   },
-  aboutSection: {
-    padding: '4rem 2rem',
-    background: '#f8fafc',
-  },
-  aboutContent: {
-    maxWidth: '1200px',
-    margin: '0 auto',
+  benefitsList: {
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
-    gap: '3rem',
-    alignItems: 'center',
-  },
-  aboutText: {},
-  aboutTitle: {
-    fontSize: '2.5rem',
-    fontWeight: 700,
+    gap: '0.75rem',
     marginBottom: '1.5rem',
-    color: '#1e3a8a',
   },
-  aboutParagraph: {
-    fontSize: '1.1rem',
-    color: '#64748b',
-    lineHeight: 1.8,
-    marginBottom: '1rem',
+  benefitItem: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.5rem',
+    fontSize: '0.9rem',
+    color: '#475569',
   },
-  aboutImage: {
+  checkmark: {
+    width: '20px',
+    height: '20px',
+    borderRadius: '50%',
+    background: 'linear-gradient(135deg, #1e3a8a 0%, #ea580c 100%)',
+    color: 'white',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: '0.75rem',
+    fontWeight: 700,
+    flexShrink: 0,
+  },
+  serviceButton: {
+    background: 'linear-gradient(135deg, #1e3a8a 0%, #ea580c 100%)',
+    color: 'white',
+    padding: '1rem 2rem',
+    fontSize: '1rem',
+    fontWeight: 600,
+    border: 'none',
+    borderRadius: '50px',
+    cursor: 'pointer',
     width: '100%',
-    borderRadius: '12px',
-    boxShadow: '0 10px 40px rgba(0,0,0,0.1)',
+    transition: 'all 0.3s',
+    boxShadow: '0 4px 15px rgba(30, 58, 138, 0.3)',
   },
+  
   testimonialsSection: {
-    padding: '4rem 2rem',
-    background: 'white',
+    padding: '5rem 2rem',
+    background: '#f8fafc',
   },
   testimonialsGrid: {
     maxWidth: '1200px',
@@ -867,120 +657,146 @@ highlight: {padding: '1.5rem',
     gap: '2rem',
   },
   testimonialCard: {
-    background: '#f8fafc',
+    background: 'white',
     padding: '2rem',
-    borderRadius: '12px',
-    borderLeft: '4px solid #ea580c',
+    borderRadius: '16px',
+    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
+  },
+  stars: {
+    display: 'flex',
+    gap: '4px',
+    marginBottom: '1rem',
   },
   testimonialText: {
     fontSize: '1.1rem',
     color: '#334155',
-    lineHeight: 1.6,
-    marginBottom: '1.5rem',
+    lineHeight: 1.7,
+    marginBottom: '1rem',
     fontStyle: 'italic',
   },
   testimonialAuthor: {
-    fontWeight: 600,
-    color: '#1e3a8a',
     fontSize: '1rem',
-  },
-  testimonialRole: {
     color: '#64748b',
-    fontSize: '0.9rem',
+    fontWeight: 600,
   },
+  
   contactSection: {
-    padding: '4rem 2rem',
+    padding: '5rem 2rem',
     background: '#1e3a8a',
     color: 'white',
+  },
+  contactTitle: {
+    fontSize: '3rem',
+    fontWeight: 700,
     textAlign: 'center',
+    marginBottom: '1rem',
+  },
+  contactSubtitle: {
+    fontSize: '1.3rem',
+    textAlign: 'center',
+    marginBottom: '4rem',
+    opacity: 0.9,
+  },
+  contactGrid: {
+    maxWidth: '1200px',
+    margin: '0 auto',
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+    gap: '4rem',
+  },
+  contactInfo: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '2rem',
+  },
+  contactItem: {
+    display: 'flex',
+    alignItems: 'flex-start',
+    gap: '1rem',
+  },
+  contactLabel: {
+    fontSize: '0.9rem',
+    opacity: 0.8,
+    marginBottom: '0.3rem',
+  },
+  contactValue: {
+    fontSize: '1.2rem',
+    fontWeight: 600,
   },
   contactForm: {
-    maxWidth: '600px',
-    margin: '0 auto',
     display: 'flex',
     flexDirection: 'column',
     gap: '1.5rem',
   },
   formGroup: {
-    textAlign: 'left',
+    display: 'flex',
+    flexDirection: 'column',
   },
   formLabel: {
-    display: 'block',
     marginBottom: '0.5rem',
     fontWeight: 500,
-    color: 'white',
   },
   formInput: {
-    width: '100%',
-    padding: '0.75rem',
+    padding: '0.8rem',
     borderRadius: '8px',
-    border: '2px solid #cbd5e1',
+    border: '2px solid rgba(255, 255, 255, 0.2)',
     fontSize: '1rem',
-    fontFamily: 'inherit',
-    boxSizing: 'border-box',
+    background: 'rgba(255, 255, 255, 0.1)',
+    color: 'white',
   },
   formTextarea: {
-    width: '100%',
-    padding: '0.75rem',
+    padding: '0.8rem',
     borderRadius: '8px',
-    border: '2px solid #cbd5e1',
+    border: '2px solid rgba(255, 255, 255, 0.2)',
     fontSize: '1rem',
+    background: 'rgba(255, 255, 255, 0.1)',
+    color: 'white',
     fontFamily: 'inherit',
-    minHeight: '150px',
     resize: 'vertical',
-    boxSizing: 'border-box',
   },
   submitButton: {
     background: '#ea580c',
     color: 'white',
-    padding: '1rem 2rem',
-    border: 'none',
-    borderRadius: '8px',
+    padding: '1.2rem 2rem',
     fontSize: '1.1rem',
     fontWeight: 600,
+    border: 'none',
+    borderRadius: '50px',
     cursor: 'pointer',
-    transition: 'background 0.3s',
+    transition: 'all 0.3s',
+    boxShadow: '0 4px 20px rgba(234, 88, 12, 0.4)',
   },
+  
   footer: {
     background: '#0f172a',
     color: 'white',
-    padding: '3rem 2rem 1rem',
+    padding: '3rem 2rem',
   },
   footerContent: {
     maxWidth: '1200px',
     margin: '0 auto',
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-    gap: '2rem',
-    marginBottom: '2rem',
-  },
-  footerSection: {},
-  footerTitle: {
-    fontSize: '1.3rem',
-    marginBottom: '1rem',
-    color: '#ea580c',
-  },
-  footerText: {
-    color: '#cbd5e1',
-    lineHeight: 1.8,
-    fontSize: '0.95rem',
-    margin: '0.25rem 0',
-  },
-  socialLinks: {
     display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    gap: '2rem',
+  },
+  footerLogo: {
+    display: 'flex',
+    alignItems: 'center',
     gap: '1rem',
-    marginTop: '1rem',
+    marginBottom: '0.5rem',
   },
-  socialIcon: {
+  footerLogoText: {
     fontSize: '1.5rem',
-    color: '#cbd5e1',
-    textDecoration: 'none',
-    cursor: 'pointer',
+    fontWeight: 700,
   },
-  footerBottom: {
-    textAlign: 'center',
-    paddingTop: '2rem',
-    borderTop: '1px solid #334155',
+  footerTagline: {
+    color: '#94a3b8',
+    fontSize: '0.95rem',
+    fontStyle: 'italic',
+  },
+  footerCopyright: {
     color: '#94a3b8',
     fontSize: '0.9rem',
   },
