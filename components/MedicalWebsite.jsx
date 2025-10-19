@@ -65,7 +65,7 @@ export default function GarciaFamilyMedicine() {
     },
     {
       id: 'wellness',
-      title: 'Corporate Wellness Programs',
+      title: 'Small Business Wellness',
       subtitle: 'For Teams of 5+',
       description: 'Comprehensive workplace health solutions for small businesses',
       cta: 'Learn More',
@@ -228,7 +228,10 @@ export default function GarciaFamilyMedicine() {
                 <img 
                   src={member.photo} 
                   alt={member.name}
-                  style={styles.teamPhoto}
+                  style={{
+                    ...styles.teamPhoto,
+                    objectPosition: member.name === 'Dr. Tess Garcia' ? 'center 30%' : 'center top'
+                  }}
                   onError={(e) => {
                     e.target.style.background = 'linear-gradient(135deg, #1e3a8a 0%, #ea580c 100%)';
                     e.target.style.display = 'block';
@@ -322,18 +325,25 @@ export default function GarciaFamilyMedicine() {
           ].map((service, index) => (
             <div key={index} style={styles.serviceCard}>
               <div style={styles.serviceImageContainer}>
-                <img 
-                  src={service.image} 
-                  alt={service.title}
-                  style={{
-                    ...styles.serviceImage,
-                    objectPosition: service.title === 'CoreLift™ Pelvic Health' ? 'center 35%' : 'center top'
-                  }}
-                  onError={(e) => {
-                    e.target.style.background = 'linear-gradient(135deg, #1e3a8a 0%, #ea580c 100%)';
-                    e.target.style.display = 'block';
-                  }}
-                />
+                {service.title === 'CoreLift™ Pelvic Health' ? (
+                  <div style={styles.serviceVideoPlaceholder}>
+                    <div style={styles.servicePlayButton}>▶</div>
+                    <p style={styles.serviceVideoLabel}>CoreLift Treatment Video</p>
+                  </div>
+                ) : (
+                  <img 
+                    src={service.image} 
+                    alt={service.title}
+                    style={{
+                      ...styles.serviceImage,
+                      objectPosition: 'center top'
+                    }}
+                    onError={(e) => {
+                      e.target.style.background = 'linear-gradient(135deg, #1e3a8a 0%, #ea580c 100%)';
+                      e.target.style.display = 'block';
+                    }}
+                  />
+                )}
                 <div style={styles.serviceOverlay} />
               </div>
               <div style={styles.serviceContent}>
@@ -889,6 +899,41 @@ const styles = {
     width: '100%',
     height: '100%',
     background: 'linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.15) 100%)',
+  },
+  serviceVideoPlaceholder: {
+    position: 'relative',
+    width: '100%',
+    height: '100%',
+    background: 'linear-gradient(135deg, #1e3a8a 0%, #ea580c 100%)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    cursor: 'pointer',
+  },
+  servicePlayButton: {
+    width: '80px',
+    height: '80px',
+    background: 'rgba(255, 255, 255, 0.95)',
+    borderRadius: '50%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: '2rem',
+    color: '#1e3a8a',
+    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
+  },
+  serviceVideoLabel: {
+    position: 'absolute',
+    bottom: '20px',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    color: 'white',
+    fontSize: '1.1rem',
+    fontWeight: 600,
+    textAlign: 'center',
+    width: '100%',
+    padding: '0 1rem',
+    margin: 0,
   },
   serviceContent: {
     padding: '2rem',
