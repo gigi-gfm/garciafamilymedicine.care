@@ -191,6 +191,60 @@ export default function GarciaFamilyMedicine() {
         </div>
       </div>
 
+      {/* Meet Our Team Section */}
+      <div style={styles.teamSection}>
+        <h2 style={styles.sectionTitle}>Meet Our Team</h2>
+        <p style={styles.sectionSubtitle}>Compassionate professionals dedicated to your health and wellbeing</p>
+        
+        <div style={styles.teamGrid}>
+          {[
+            {
+              name: 'Dr. Tess Garcia',
+              title: 'Board Certified Family Medicine & Obesity Medicine',
+              photo: '/images/dr-tess.png',
+              statement: 'With over 25 years of experience, I am honored to serve our community with compassionate, comprehensive care. My approach treats the whole patient—spirit, body, and soul—because true health encompasses every aspect of your life.'
+            },
+            {
+              name: 'Gigi',
+              title: 'Practice Manager',
+              photo: '/images/meetthedoctor/gigi.jpg',
+              statement: 'I ensure our practice runs smoothly so that every patient receives exceptional care and attention. My goal is to make your healthcare journey as seamless and comfortable as possible.'
+            },
+            {
+              name: 'Marisela',
+              title: 'Medical Assistant',
+              photo: '/images/meetthedoctor/marisela.jpg',
+              statement: 'I work closely with Dr. Tess to provide excellent patient care. From preparing you for your visit to following up on your treatment plan, I am here to support your health journey every step of the way.'
+            },
+            {
+              name: 'Maria',
+              title: 'Patient Services Coordinator',
+              photo: '/images/meetthedoctor/maria.jpg',
+              statement: 'As your first point of contact, I handle all incoming and outgoing calls with care and professionalism. I am here to answer your questions, schedule appointments, and ensure you receive the support you need.'
+            }
+          ].map((member, index) => (
+            <div key={index} style={styles.teamCard}>
+              <div style={styles.teamPhotoContainer}>
+                <img 
+                  src={member.photo} 
+                  alt={member.name}
+                  style={styles.teamPhoto}
+                  onError={(e) => {
+                    e.target.style.background = 'linear-gradient(135deg, #1e3a8a 0%, #ea580c 100%)';
+                    e.target.style.display = 'block';
+                  }}
+                />
+              </div>
+              <div style={styles.teamContent}>
+                <h3 style={styles.teamName}>{member.name}</h3>
+                <p style={styles.teamTitle}>{member.title}</p>
+                <p style={styles.teamStatement}>{member.statement}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Stats Section */}
       <div style={styles.statsSection}>
         <div style={styles.statsGrid}>
@@ -702,6 +756,59 @@ const styles = {
     background: 'white',
     borderRadius: '12px',
     borderLeft: '4px solid #ea580c',
+    lineHeight: 1.7,
+  },
+  
+  teamSection: {
+    padding: '5rem 2rem',
+    background: 'white',
+  },
+  teamGrid: {
+    maxWidth: '1400px',
+    margin: '0 auto',
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+    gap: '3rem',
+  },
+  teamCard: {
+    background: 'white',
+    borderRadius: '20px',
+    overflow: 'hidden',
+    boxShadow: '0 10px 40px rgba(0, 0, 0, 0.1)',
+    transition: 'transform 0.3s, box-shadow 0.3s',
+    cursor: 'pointer',
+  },
+  teamPhotoContainer: {
+    position: 'relative',
+    height: '350px',
+    overflow: 'hidden',
+    background: 'linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%)',
+  },
+  teamPhoto: {
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    objectPosition: 'center top',
+  },
+  teamContent: {
+    padding: '2rem',
+  },
+  teamName: {
+    fontSize: '1.8rem',
+    fontWeight: 700,
+    color: '#1e3a8a',
+    marginBottom: '0.5rem',
+  },
+  teamTitle: {
+    fontSize: '1.1rem',
+    color: '#ea580c',
+    fontWeight: 600,
+    marginBottom: '1rem',
+    lineHeight: 1.4,
+  },
+  teamStatement: {
+    fontSize: '1rem',
+    color: '#64748b',
     lineHeight: 1.7,
   },
   
