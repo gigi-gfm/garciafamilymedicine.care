@@ -271,7 +271,10 @@ export default function GarciaFamilyMedicine() {
                 <img 
                   src={service.image} 
                   alt={service.title}
-                  style={styles.serviceImage}
+                  style={{
+                    ...styles.serviceImage,
+                    objectPosition: service.title === 'CoreLift™ Pelvic Health' ? 'center 35%' : 'center top'
+                  }}
                   onError={(e) => {
                     e.target.style.background = 'linear-gradient(135deg, #1e3a8a 0%, #ea580c 100%)';
                     e.target.style.display = 'block';
@@ -321,7 +324,7 @@ export default function GarciaFamilyMedicine() {
         
         {/* Video Testimonials */}
         <div style={styles.videoTestimonialsGrid}>
-          {[1, 2, 3].map((num) => (
+          {[1, 2, 3, 4, 5].map((num) => (
             <div key={num} style={styles.videoTestimonialCard}>
               <div style={styles.videoPlaceholder}>
                 <div style={styles.playButton}>▶</div>
