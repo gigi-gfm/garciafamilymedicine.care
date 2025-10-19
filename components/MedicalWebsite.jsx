@@ -1,5 +1,7 @@
+'use client'
+
 import React, { useState, useEffect } from 'react';
-import { Heart, Phone, Mail, MapPin, Clock, ChevronLeft, ChevronRight, Star, Calendar } from 'lucide-react';
+import { Heart, Phone, Mail, MapPin, Clock, ChevronLeft, ChevronRight, Star, Calendar, Award, Briefcase, DollarSign, Brain, Truck } from 'lucide-react';
 
 export default function GarciaFamilyMedicine() {
   const [formData, setFormData] = useState({
@@ -24,7 +26,7 @@ export default function GarciaFamilyMedicine() {
     {
       id: 'corelift',
       title: 'CoreLift™ Pelvic Health',
-      subtitle: 'with Emsella Technology',
+      subtitle: 'with Emsella',
       description: 'Revolutionary non-invasive treatment for bladder control and intimate wellness',
       cta: 'Learn More',
       image: '/images/corelift.png'
@@ -44,6 +46,30 @@ export default function GarciaFamilyMedicine() {
       description: 'Science-based weight loss tailored to your unique needs',
       cta: 'Start Your Journey',
       image: '/images/weight-management.jpg'
+    },
+    {
+      id: 'counseling',
+      title: 'Mental Health Counseling',
+      subtitle: 'Compassionate Support',
+      description: 'Professional counseling for anxiety, depression, and life transitions',
+      cta: 'Book Appointment',
+      image: '/images/counseling.jpg'
+    },
+    {
+      id: 'dot',
+      title: 'DOT Physical Exams',
+      subtitle: 'Certified Examiners',
+      description: 'Fast, thorough DOT physicals to keep you on the road',
+      cta: 'Schedule Exam',
+      image: '/images/dot-exams.jpg'
+    },
+    {
+      id: 'wellness',
+      title: 'Corporate Wellness Programs',
+      subtitle: 'For Teams of 5+',
+      description: 'Comprehensive workplace health solutions for small businesses',
+      cta: 'Learn More',
+      image: '/images/workplace.jpg'
     }
   ];
 
@@ -72,7 +98,7 @@ export default function GarciaFamilyMedicine() {
 
   return (
     <div style={styles.container}>
-      {/* Fixed Logo */}
+      {/* Fixed Logo - LARGER */}
       <div style={styles.logoContainer}>
         <img 
           src="/images/garcia-logo.png" 
@@ -95,8 +121,8 @@ export default function GarciaFamilyMedicine() {
             <div style={{
               ...styles.heroOverlay,
               background: slide.featured 
-                ? 'linear-gradient(135deg, rgba(234, 88, 12, 0.9) 0%, rgba(220, 38, 38, 0.85) 100%)'
-                : 'linear-gradient(135deg, rgba(30, 58, 138, 0.85) 0%, rgba(234, 88, 12, 0.75) 100%)'
+                ? 'linear-gradient(135deg, rgba(234, 88, 12, 0.45) 0%, rgba(220, 38, 38, 0.4) 100%)'
+                : 'linear-gradient(135deg, rgba(30, 58, 138, 0.6) 0%, rgba(234, 88, 12, 0.5) 100%)'
             }} />
             <img 
               src={slide.image} 
@@ -146,6 +172,25 @@ export default function GarciaFamilyMedicine() {
         </div>
       </div>
 
+      {/* Welcome Video from Dr. Tess */}
+      <div style={styles.welcomeSection}>
+        <div style={styles.welcomeContainer}>
+          <div style={styles.videoPlaceholder}>
+            <div style={styles.playButton}>▶</div>
+            <p style={styles.videoLabel}>Welcome Video from Dr. Tess</p>
+          </div>
+          <div style={styles.welcomeContent}>
+            <h2 style={styles.welcomeTitle}>Welcome to Garcia Family Medicine</h2>
+            <p style={styles.welcomeText}>
+              At Garcia Family Medicine, we treat the whole patient: spirit, body, and soul. I'm Dr. Tess Garcia, and I'm honored to serve our community with compassionate, comprehensive care. Whether you're managing a chronic condition, seeking preventive care, or exploring innovative treatments like CoreLift, our team is here to support your health journey every step of the way.
+            </p>
+            <p style={styles.availabilityText}>
+              <strong>📞 We're Here When You Need Us:</strong> Available 24/7 for non-urgent medical questions and concerns. Dr. Tess personally responds to patient needs around the clock.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Stats Section */}
       <div style={styles.statsSection}>
         <div style={styles.statsGrid}>
@@ -164,7 +209,7 @@ export default function GarciaFamilyMedicine() {
         </div>
       </div>
 
-      {/* Top 3 Services Section */}
+      {/* Featured Services Section */}
       <div style={styles.servicesSection}>
         <h2 style={styles.sectionTitle}>Our Featured Services</h2>
         <p style={styles.sectionSubtitle}>Specialized care tailored to your unique needs</p>
@@ -173,7 +218,7 @@ export default function GarciaFamilyMedicine() {
           {[
             {
               title: 'CoreLift™ Pelvic Health',
-              subtitle: 'with Emsella Technology',
+              subtitle: 'with Emsella',
               image: '/images/services/corelift-hero.jpg',
               description: 'Revolutionary FDA-cleared treatment for bladder control and intimate wellness. Non-invasive, comfortable, and highly effective.',
               benefits: ['Non-invasive', 'No downtime', 'FDA cleared', '95% success rate']
@@ -191,6 +236,34 @@ export default function GarciaFamilyMedicine() {
               image: '/images/services/weight-hero.jpg',
               description: 'Science-based weight loss programs tailored to your metabolism, lifestyle, and health goals.',
               benefits: ['Custom plans', 'Medical supervision', 'Proven results', 'Ongoing support']
+            },
+            {
+              title: 'Mental Health Counseling',
+              subtitle: 'Compassionate Support',
+              image: '/images/counseling.jpg',
+              description: 'Professional counseling for anxiety, depression, and life transitions. Safe, confidential care when you need it most.',
+              benefits: ['Licensed therapists', 'Faith-integrated options', 'Flexible scheduling', 'Confidential care']
+            },
+            {
+              title: 'DOT Physical Exams',
+              subtitle: 'Certified Examiners',
+              image: '/images/dot-exams.jpg',
+              description: 'Fast, thorough DOT physicals to keep commercial drivers on the road. Certified examiners, quick turnaround.',
+              benefits: ['Same-day service', 'FMCSA certified', 'Fast results', 'Walk-ins welcome']
+            },
+            {
+              title: 'Small Business Wellness',
+              subtitle: 'For Teams of 5+',
+              image: '/images/workplace.jpg',
+              description: 'Comprehensive workplace health solutions tailored for small businesses. Keep your team healthy and productive.',
+              benefits: ['On-site options', 'Custom programs', 'Employee wellness', 'Cost-effective']
+            },
+            {
+              title: 'CareCredit Financing',
+              subtitle: '0% Financing Available',
+              image: '/images/services/payment/carecredit.jpg',
+              description: 'Making quality healthcare affordable for everyone. Flexible payment plans with 0% interest options available.',
+              benefits: ['0% interest plans', 'Quick approval', 'Flexible terms', 'Easy application']
             }
           ].map((service, index) => (
             <div key={index} style={styles.serviceCard}>
@@ -225,9 +298,76 @@ export default function GarciaFamilyMedicine() {
         </div>
       </div>
 
+      {/* Additional Services */}
+      <div style={styles.additionalServicesSection}>
+        <h2 style={styles.sectionTitle}>Additional Services</h2>
+        <div style={styles.additionalServicesGrid}>
+          {[
+            {
+              icon: <Brain size={40} />,
+              title: 'Mental Health Counseling',
+              description: 'Compassionate support for anxiety, depression, and life transitions'
+            },
+            {
+              icon: <Truck size={40} />,
+              title: 'DOT Physical Exams',
+              description: 'Certified DOT physicals to keep commercial drivers on the road'
+            },
+            {
+              icon: <Briefcase size={40} />,
+              title: 'Corporate Wellness Programs',
+              description: 'Comprehensive workplace health solutions for teams of 5+ employees'
+            },
+            {
+              icon: <DollarSign size={40} />,
+              title: 'CareCredit Financing',
+              description: '0% financing available - making quality healthcare affordable for everyone'
+            }
+          ].map((service, index) => (
+            <div key={index} style={styles.additionalServiceCard}>
+              <div style={styles.serviceIcon}>{service.icon}</div>
+              <h3 style={styles.additionalServiceTitle}>{service.title}</h3>
+              <p style={styles.additionalServiceDescription}>{service.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Google Reviews Section */}
+      <div style={styles.googleReviewsSection}>
+        <h2 style={styles.sectionTitle}>What Our Patients Say</h2>
+        <div style={styles.googleBadge}>
+          <Star size={32} fill="#fbbc04" color="#fbbc04" />
+          <div style={styles.googleRating}>
+            <div style={styles.ratingNumber}>4.9</div>
+            <div style={styles.ratingText}>Google Rating</div>
+          </div>
+        </div>
+        <p style={styles.googleReviewsLink}>
+          <a href="https://www.google.com/search?q=garcia+family+medicine+blue+springs" target="_blank" rel="noopener noreferrer" style={styles.reviewLink}>
+            Read Our Google Reviews →
+          </a>
+        </p>
+      </div>
+
       {/* Testimonials Section */}
       <div style={styles.testimonialsSection}>
-        <h2 style={styles.sectionTitle}>What Our Patients Say</h2>
+        <h2 style={styles.sectionTitle}>Patient Testimonials</h2>
+        
+        {/* Video Testimonials */}
+        <div style={styles.videoTestimonialsGrid}>
+          {[1, 2, 3].map((num) => (
+            <div key={num} style={styles.videoTestimonialCard}>
+              <div style={styles.videoPlaceholder}>
+                <div style={styles.playButton}>▶</div>
+                <p style={styles.videoLabel}>Patient Testimonial {num}</p>
+              </div>
+              <p style={styles.videoTestimonialCaption}>Real patient sharing their experience</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Written Testimonials */}
         <div style={styles.testimonialsGrid}>
           {[
             {
@@ -270,28 +410,42 @@ export default function GarciaFamilyMedicine() {
               <Phone size={24} color="#ea580c" />
               <div>
                 <div style={styles.contactLabel}>Phone</div>
-                <div style={styles.contactValue}>(816) 229-5900</div>
+                <div style={styles.contactValue}>(816) 427-5320</div>
               </div>
             </div>
             <div style={styles.contactItem}>
               <Mail size={24} color="#ea580c" />
               <div>
                 <div style={styles.contactLabel}>Email</div>
-                <div style={styles.contactValue}>info@garciafamilymedicine.care</div>
+                <div style={styles.contactValue}>admin@garciafamilymedicine.care</div>
               </div>
             </div>
             <div style={styles.contactItem}>
               <MapPin size={24} color="#ea580c" />
               <div>
-                <div style={styles.contactLabel}>Location</div>
-                <div style={styles.contactValue}>Blue Springs, MO</div>
+                <div style={styles.contactLabel}>Address</div>
+                <div style={styles.contactValue}>
+                  801 NW Saint Mary's Drive<br />
+                  Suite 209<br />
+                  Blue Springs, MO 64014
+                </div>
+              </div>
+            </div>
+            <div style={styles.contactItem}>
+              <Phone size={24} color="#ea580c" />
+              <div>
+                <div style={styles.contactLabel}>Fax</div>
+                <div style={styles.contactValue}>(888) 807-2718</div>
               </div>
             </div>
             <div style={styles.contactItem}>
               <Clock size={24} color="#ea580c" />
               <div>
-                <div style={styles.contactLabel}>Hours</div>
-                <div style={styles.contactValue}>Mon-Fri: 8AM-5PM</div>
+                <div style={styles.contactLabel}>Office Hours</div>
+                <div style={styles.contactValue}>
+                  Tuesday - Friday: 9 AM - 5 PM<br />
+                  Evening & weekend appointments available
+                </div>
               </div>
             </div>
           </div>
@@ -353,6 +507,10 @@ export default function GarciaFamilyMedicine() {
               <span style={styles.footerLogoText}>Garcia Family Medicine</span>
             </div>
             <p style={styles.footerTagline}>Treating the whole patient: Spirit, Body, and Soul</p>
+            <p style={styles.footerAddress}>
+              801 NW Saint Mary's Drive, Suite 209<br />
+              Blue Springs, MO 64014
+            </p>
           </div>
           <div style={styles.footerCopyright}>
             © 2019-{new Date().getFullYear()} Garcia Family Medicine. All rights reserved.
@@ -376,14 +534,14 @@ const styles = {
     left: '20px',
     zIndex: 1000,
     background: 'white',
-    padding: '10px',
+    padding: '12px',
     borderRadius: '12px',
     boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
   },
   logo: {
     display: 'block',
-    width: '60px',
-    height: '60px',
+    width: '100px',
+    height: '100px',
     borderRadius: '8px',
   },
   
@@ -435,7 +593,6 @@ const styles = {
     fontWeight: 700,
     marginBottom: '1.5rem',
     boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)',
-    animation: 'pulse 2s infinite',
   },
   heroTitle: {
     fontSize: '3.5rem',
@@ -505,6 +662,79 @@ const styles = {
     border: 'none',
     cursor: 'pointer',
     transition: 'all 0.3s',
+  },
+  
+  welcomeSection: {
+    padding: '5rem 2rem',
+    background: 'linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%)',
+  },
+  welcomeContainer: {
+    maxWidth: '1200px',
+    margin: '0 auto',
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
+    gap: '4rem',
+    alignItems: 'center',
+  },
+  videoPlaceholder: {
+    position: 'relative',
+    width: '100%',
+    paddingTop: '56.25%',
+    background: 'linear-gradient(135deg, #1e3a8a 0%, #ea580c 100%)',
+    borderRadius: '16px',
+    overflow: 'hidden',
+    boxShadow: '0 10px 40px rgba(0, 0, 0, 0.2)',
+    cursor: 'pointer',
+  },
+  playButton: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '80px',
+    height: '80px',
+    background: 'rgba(255, 255, 255, 0.9)',
+    borderRadius: '50%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: '2rem',
+    color: '#1e3a8a',
+    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
+  },
+  videoLabel: {
+    position: 'absolute',
+    bottom: '20px',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    color: 'white',
+    fontSize: '1.1rem',
+    fontWeight: 600,
+    textAlign: 'center',
+    width: '100%',
+    padding: '0 1rem',
+  },
+  welcomeContent: {
+    color: '#334155',
+  },
+  welcomeTitle: {
+    fontSize: '2.5rem',
+    fontWeight: 700,
+    color: '#1e3a8a',
+    marginBottom: '1.5rem',
+  },
+  welcomeText: {
+    fontSize: '1.1rem',
+    lineHeight: 1.8,
+    marginBottom: '1.5rem',
+  },
+  availabilityText: {
+    fontSize: '1.1rem',
+    padding: '1.5rem',
+    background: 'white',
+    borderRadius: '12px',
+    borderLeft: '4px solid #ea580c',
+    lineHeight: 1.7,
   },
   
   statsSection: {
@@ -582,7 +812,7 @@ const styles = {
     left: 0,
     width: '100%',
     height: '100%',
-    background: 'linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.3) 100%)',
+    background: 'linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.15) 100%)',
   },
   serviceContent: {
     padding: '2rem',
@@ -645,9 +875,100 @@ const styles = {
     boxShadow: '0 4px 15px rgba(30, 58, 138, 0.3)',
   },
   
+  additionalServicesSection: {
+    padding: '5rem 2rem',
+    background: '#f8fafc',
+  },
+  additionalServicesGrid: {
+    maxWidth: '1200px',
+    margin: '0 auto',
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+    gap: '2rem',
+  },
+  additionalServiceCard: {
+    background: 'white',
+    padding: '2rem',
+    borderRadius: '16px',
+    textAlign: 'center',
+    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
+    transition: 'transform 0.3s',
+  },
+  serviceIcon: {
+    color: '#ea580c',
+    marginBottom: '1rem',
+  },
+  additionalServiceTitle: {
+    fontSize: '1.3rem',
+    fontWeight: 700,
+    color: '#1e3a8a',
+    marginBottom: '0.75rem',
+  },
+  additionalServiceDescription: {
+    fontSize: '0.95rem',
+    color: '#64748b',
+    lineHeight: 1.6,
+  },
+  
+  googleReviewsSection: {
+    padding: '4rem 2rem',
+    background: 'white',
+    textAlign: 'center',
+  },
+  googleBadge: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1.5rem 3rem',
+    background: 'white',
+    borderRadius: '16px',
+    boxShadow: '0 8px 30px rgba(0, 0, 0, 0.1)',
+    marginBottom: '2rem',
+  },
+  googleRating: {
+    textAlign: 'left',
+  },
+  ratingNumber: {
+    fontSize: '2rem',
+    fontWeight: 700,
+    color: '#1e3a8a',
+  },
+  ratingText: {
+    fontSize: '0.9rem',
+    color: '#64748b',
+  },
+  googleReviewsLink: {
+    fontSize: '1.2rem',
+    marginTop: '1rem',
+  },
+  reviewLink: {
+    color: '#ea580c',
+    fontWeight: 600,
+    textDecoration: 'none',
+  },
+  
   testimonialsSection: {
     padding: '5rem 2rem',
     background: '#f8fafc',
+  },
+  videoTestimonialsGrid: {
+    maxWidth: '1200px',
+    margin: '0 auto 4rem',
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+    gap: '2rem',
+  },
+  videoTestimonialCard: {
+    background: 'white',
+    borderRadius: '16px',
+    overflow: 'hidden',
+    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
+  },
+  videoTestimonialCaption: {
+    padding: '1rem',
+    fontSize: '0.95rem',
+    color: '#64748b',
+    textAlign: 'center',
   },
   testimonialsGrid: {
     maxWidth: '1200px',
@@ -720,8 +1041,9 @@ const styles = {
     marginBottom: '0.3rem',
   },
   contactValue: {
-    fontSize: '1.2rem',
+    fontSize: '1.1rem',
     fontWeight: 600,
+    lineHeight: 1.6,
   },
   contactForm: {
     display: 'flex',
@@ -777,7 +1099,7 @@ const styles = {
     margin: '0 auto',
     display: 'flex',
     justifyContent: 'space-between',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     flexWrap: 'wrap',
     gap: '2rem',
   },
@@ -795,6 +1117,12 @@ const styles = {
     color: '#94a3b8',
     fontSize: '0.95rem',
     fontStyle: 'italic',
+    marginBottom: '0.5rem',
+  },
+  footerAddress: {
+    color: '#94a3b8',
+    fontSize: '0.9rem',
+    lineHeight: 1.6,
   },
   footerCopyright: {
     color: '#94a3b8',
