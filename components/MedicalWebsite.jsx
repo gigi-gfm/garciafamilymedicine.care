@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react';
-import { Heart, Phone, Mail, MapPin, Clock, ChevronLeft, ChevronRight, Star, Calendar, Award, Briefcase, DollarSign, Brain, Truck } from 'lucide-react';
+import { Heart, Phone, Mail, MapPin, Clock, ChevronLeft, ChevronRight, Star, Calendar } from 'lucide-react';
 
 export default function GarciaFamilyMedicine() {
   const [formData, setFormData] = useState({
@@ -209,31 +209,31 @@ export default function GarciaFamilyMedicine() {
         </div>
       </div>
 
-      {/* Featured Services Section */}
+      {/* All Services Section */}
       <div style={styles.servicesSection}>
-        <h2 style={styles.sectionTitle}>Our Featured Services</h2>
-        <p style={styles.sectionSubtitle}>Specialized care tailored to your unique needs</p>
+        <h2 style={styles.sectionTitle}>Our Services</h2>
+        <p style={styles.sectionSubtitle}>Comprehensive care tailored to your unique needs</p>
         
         <div style={styles.servicesGrid}>
           {[
             {
               title: 'CoreLift™ Pelvic Health',
               subtitle: 'with Emsella',
-              image: '/images/services/corelift-hero.jpg',
+              image: '/images/corelift.png',
               description: 'Revolutionary FDA-cleared treatment for bladder control and intimate wellness. Non-invasive, comfortable, and highly effective.',
               benefits: ['Non-invasive', 'No downtime', 'FDA cleared', '95% success rate']
             },
             {
               title: 'Independent Medical Evaluations',
               subtitle: 'Professional & Comprehensive',
-              image: '/images/services/ime-hero.jpg',
+              image: '/images/ime.jpg',
               description: 'Expert medical evaluations for legal and insurance cases. Thorough, objective assessments you can trust.',
               benefits: ['Expert analysis', 'Detailed reports', 'Legal support', 'Fast turnaround']
             },
             {
               title: 'Medical Weight Management',
               subtitle: 'Personalized Programs',
-              image: '/images/services/weight-hero.jpg',
+              image: '/images/weight-management.jpg',
               description: 'Science-based weight loss programs tailored to your metabolism, lifestyle, and health goals.',
               benefits: ['Custom plans', 'Medical supervision', 'Proven results', 'Ongoing support']
             },
@@ -261,7 +261,7 @@ export default function GarciaFamilyMedicine() {
             {
               title: 'CareCredit Financing',
               subtitle: '0% Financing Available',
-              image: '/images/services/payment/carecredit.jpg',
+              image: '/images/payment.jpg',
               description: 'Making quality healthcare affordable for everyone. Flexible payment plans with 0% interest options available.',
               benefits: ['0% interest plans', 'Quick approval', 'Flexible terms', 'Easy application']
             }
@@ -293,41 +293,6 @@ export default function GarciaFamilyMedicine() {
                 </div>
                 <button style={styles.serviceButton}>Learn More</button>
               </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Additional Services */}
-      <div style={styles.additionalServicesSection}>
-        <h2 style={styles.sectionTitle}>Additional Services</h2>
-        <div style={styles.additionalServicesGrid}>
-          {[
-            {
-              icon: <Brain size={40} />,
-              title: 'Mental Health Counseling',
-              description: 'Compassionate support for anxiety, depression, and life transitions'
-            },
-            {
-              icon: <Truck size={40} />,
-              title: 'DOT Physical Exams',
-              description: 'Certified DOT physicals to keep commercial drivers on the road'
-            },
-            {
-              icon: <Briefcase size={40} />,
-              title: 'Corporate Wellness Programs',
-              description: 'Comprehensive workplace health solutions for teams of 5+ employees'
-            },
-            {
-              icon: <DollarSign size={40} />,
-              title: 'CareCredit Financing',
-              description: '0% financing available - making quality healthcare affordable for everyone'
-            }
-          ].map((service, index) => (
-            <div key={index} style={styles.additionalServiceCard}>
-              <div style={styles.serviceIcon}>{service.icon}</div>
-              <h3 style={styles.additionalServiceTitle}>{service.title}</h3>
-              <p style={styles.additionalServiceDescription}>{service.description}</p>
             </div>
           ))}
         </div>
